@@ -114,16 +114,16 @@ def update_output(start_date, end_date):
         yaxis={"title": "Área (ha)"},
         showlegend=False,
         separators=".",
+        modebar_remove=['zoom', 'pan', 'select', 'zoomIn', 'zoomOut', 'lasso2d'],
     )
 
     figure_day = go.Figure(data=data_day, layout=layout)
+
     figure_day.update_yaxes(fixedrange=False)
     figure_day.update_traces(
         hovertemplate="""Município: %{customdata}<br>Data:%{x}<br>Área (ha): %{value:.2f}<extra></extra>"""
     )
-
     figure_day.update_layout(
-        modebar_remove=['zoom', 'pan', 'select', 'zoomIn', 'zoomOut', 'lasso2d'],
         xaxis={
             "rangeselector": {
                 "buttons": list(
