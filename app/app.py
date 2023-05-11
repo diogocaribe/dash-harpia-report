@@ -78,7 +78,7 @@ app.layout = html.Div(
     children=[
         header,
         date_picker,
-        dcc.Graph(id="grafico-desmatamento-tempo"),
+        dcc.Graph(id="grafico-desmatamento-tempo", config= {'displaylogo': False, 'scrollZoom': True}),
         # leaflet_map,
         footer,
     ],
@@ -123,6 +123,7 @@ def update_output(start_date, end_date):
     )
 
     figure_day.update_layout(
+        modebar_remove=['zoom', 'pan', 'select', 'zoomIn', 'zoomOut', 'lasso2d'],
         xaxis={
             "rangeselector": {
                 "buttons": list(
@@ -159,6 +160,7 @@ def update_output(start_date, end_date):
             "type": "date",
         }
     )
+
 
     return figure_day
 
