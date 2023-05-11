@@ -1,8 +1,7 @@
+import pandas as pd
 from config_db.configs.connection import DBConnectionHandler
 from config_db.entities.decremento_municipio import DecrementoMunicipio
-from sqlalchemy.orm.exc import NoResultFound
 
-import pandas as pd
 
 class DecrementoMunicipioRepository:
     def select_all(self):
@@ -13,7 +12,7 @@ class DecrementoMunicipioRepository:
             except Exception as exception:
                 db.session.rollback()
                 raise exception
-    
+
     def df_select_all(self):
         """
         :param engine: SQLAlchemy database connection engine
@@ -27,7 +26,8 @@ class DecrementoMunicipioRepository:
                 data = pd.read_sql(
                             sql='SELECT id, nome, view_date, area_ha FROM vw_decremento_municipio;',
                             con=db.get_engine(),
-                            index_col=["view_date"])
+                    index_col=["view_date"],
+                )
                 return data
             except Exception as exception:
                 db.session.rollback()

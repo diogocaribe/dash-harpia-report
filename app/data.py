@@ -1,9 +1,8 @@
-from config_db.repository.monitoramento_dissolve_repository import MonitoramentoDissolveRepository
-from config_db.repository.decremento_municipio_repository import DecrementoMunicipioRepository
-import pandas as pd
-import geopandas as gpd
-import json
-
+"""Package to treat data"""
+from config_db.repository.decremento_municipio_repository import \
+    DecrementoMunicipioRepository
+from config_db.repository.monitoramento_dissolve_repository import \
+    MonitoramentoDissolveRepository
 
 # Decremento (view_date, class_name)
 monitoramentodissolverepo = MonitoramentoDissolveRepository()
@@ -20,4 +19,3 @@ df_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string
 # Calculando os valores de área decrementada por dia
 # df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \
 #     .groupby(by='view_date').sum()
-

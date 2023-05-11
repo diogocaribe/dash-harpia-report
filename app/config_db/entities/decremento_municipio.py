@@ -1,5 +1,5 @@
 from config_db.configs.base import Base
-from sqlalchemy import Column, String, Integer, DateTime, DECIMAL
+from sqlalchemy import DECIMAL, Column, DateTime, Integer, String
 
 
 class DecrementoMunicipio(Base):
@@ -12,3 +12,4 @@ class DecrementoMunicipio(Base):
 
     def __repr__(self):
         return f"Decremento Municipal [titulo={self.class_name}, view_date={self.view_date}, area_ha={self.area_ha}]"
+
