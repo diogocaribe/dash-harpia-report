@@ -2,7 +2,7 @@
 
 * Criando a tabela de cruzamentos entre municipio e desmatamento
 
-'''sql
+```sql
 CREATE OR REPLACE VIEW public.vw_decremento_municipio
 AS 
 SELECT row_number() OVER () AS id, nome, view_date, round(((st_area(st_transform(t.geom, 5555)))/10000)::numeric, 2) AS area_ha
@@ -15,4 +15,4 @@ FROM (
 	WHERE st_intersects(md.geom, ms.geom)
 	GROUP BY nome, view_date
 ) t;
-'''
+```
