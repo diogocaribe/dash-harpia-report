@@ -135,7 +135,6 @@ app.layout = dbc.Container(
     class_name="bg-primary text-white",
     style={
         "height": "100vh",
-        # "backgroundColor": "yellow",
         "display": "flex",
         "flexDirection": "column",
     },
