@@ -70,6 +70,7 @@ layout = go.Layout(
 
 figure_line = go.Figure(data=data, layout=layout)
 
+# Selecionador de datas inicial e final
 date_picker = html.Div(
     [
         dcc.DatePickerRange(
@@ -101,6 +102,7 @@ app.layout = dbc.Container(
                     md=8,
                     xs=12,
                     style={"backgroundColor": "green"},
+                    class_name="p-0"
                 ),
                 dbc.Col(
                     [
@@ -126,10 +128,11 @@ app.layout = dbc.Container(
             ],
             style={"flexGrow": "1"},
         ),
-        dbc.Row([dbc.Col([html.P("FOOTER")])]),
+        dbc.Row(
+            [dbc.Col([html.P("FOOTER")])]),
     ],
     fluid=True,
-    className="bg-primary text-white",
+    class_name="bg-primary text-white",
     style={
         "height": "100vh",
         # "backgroundColor": "yellow",
