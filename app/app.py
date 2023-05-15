@@ -2,53 +2,46 @@
 
 # coding: utf-8
 
-from datetime import datetime, date
+from datetime import date, datetime
 
 import dash
 import dash_bootstrap_components as dbc
 import dash_leaflet as dl
-import plotly.express as px
+import numpy as np
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
-from data import (
-    df_decremento_municipio,
-)  # , geojson_monitoramento_dissolve, df_monitoramento_por_dia,
-
-import numpy as np
+from data import df_decremento_municipio, geojson_monitoramento_dissolve
 
 # css para deixar o layout bonito
-external_stylesheets = [
-    # "./assets/style.css",
-    # "./assets/reset.css",
-    dbc.themes.BOOTSTRAP,
-]
+external_stylesheets = [dbc.themes.BOOTSTRAP]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 header = html.Header(
     [html.H1("MONITORAMENTO VEGETAÇÃO"), html.H4("Harpia")],
-    className="header bg-primary text-white p-2 mb-2 text-center",
+    className="header bg-primary text-white text-center p-0 m-0",
 )
 
+# assinc_await
+wms = dl.WMSTileLayer(
+    url="http://geoserver-homo.harpia.ba.gov.br/harpia/wms",
+    layers="monitoramento_dissolve",
+    format="image/png",
+    transparent=True,
+)
 
-# wms = dl.WMSTileLayer(
-#     url="http://geoserver-homo.harpia.ba.gov.br/harpia/wms",
-#     layers="monitoramento_dissolve_wmts",
-#     format="image/png",
-#     transparent=True,
-# )
-
-# leaflet_map = dl.Map(
-#     [
-#         dl.TileLayer(),
-#         wms
-#         #  dl.GeoJSON(data=geojson_monitoramento_dissolve,
-#         #  zoomToBounds=True, zoomToBoundsOnClick=True)
-#     ],
-#     style={"width": "100%", "height": "500px"},
-# )
-
-footer = html.Footer(html.H2("Final"))
+leaflet_map = dl.Map(
+    [
+        dl.TileLayer(),
+        wms
+        # dl.GeoJSON(
+        #     data=geojson_monitoramento_dissolve,
+        #     zoomToBounds=True,
+        #     zoomToBoundsOnClick=True,
+        # ),
+    ],
+    # style={"width": "100%", "height": "100%"},
+)
 
 # Datas iniciais e finais do dataframe
 max_date = df_decremento_municipio.index.max()
@@ -59,6 +52,23 @@ current_year = date.today().year
 year_start = date(current_year, 1, 1)
 year_end = date(current_year, 12, 31)
 
+# Grafico de acumulação do desmatamento
+dff = df_decremento_municipio["area_ha"].sort_index().cumsum(skipna=False)
+
+data = go.Scatter(
+    x=dff.index,
+    mode="lines",
+)
+layout = go.Layout(
+    title="Acumulado de Desflorestamento",
+    xaxis={"title": "Data"},
+    yaxis={"title": "Área (ha)"},
+    showlegend=False,
+    separators=".",
+    modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
+)
+
+figure_line = go.Figure(data=data, layout=layout)
 
 date_picker = html.Div(
     [
@@ -74,15 +84,58 @@ date_picker = html.Div(
     ],
 )
 
-app.layout = html.Div(
-    children=[
-        header,
-        date_picker,
-        dcc.Graph(id="grafico-desmatamento-tempo", config= {'displaylogo': False, 'scrollZoom': True}),
-        # leaflet_map,
-        footer,
+app.layout = dbc.Container(
+    [
+        dbc.Row(
+            [
+                dbc.Col(
+                    [html.H1("MONITORAMENTO VEGETAÇÃO"), html.H4("Harpia")],
+                    className="d-flex justify-content-between align-items-center",
+                )
+            ]
+        ),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [leaflet_map],
+                    md=8,
+                    xs=12,
+                    style={"backgroundColor": "green"},
+                ),
+                dbc.Col(
+                    [
+                        dcc.Graph(
+                            id="example-graph",
+                            figure=figure_line,
+                            config={"displaylogo": False, "scrollZoom": True},
+                        ),
+                        html.Div(
+                            children=[
+                                date_picker,
+                                dcc.Graph(
+                                    id="grafico-desmatamento-tempo",
+                                    config={"displaylogo": False, "scrollZoom": True},
+                                ),
+                            ]
+                        ),
+                    ],
+                    md=4,
+                    xs=12,
+                    style={"backgroundColor": "blue"},
+                ),
+            ],
+            style={"flexGrow": "1"},
+        ),
+        dbc.Row([dbc.Col([html.P("FOOTER")])]),
     ],
-    className="main_layout",
+    fluid=True,
+    className="bg-primary text-white",
+    style={
+        "height": "100vh",
+        # "backgroundColor": "yellow",
+        "display": "flex",
+        "flexDirection": "column",
+    },
 )
 
 
@@ -114,7 +167,7 @@ def update_output(start_date, end_date):
         yaxis={"title": "Área (ha)"},
         showlegend=False,
         separators=".",
-        modebar_remove=['zoom', 'pan', 'select', 'zoomIn', 'zoomOut', 'lasso2d'],
+        modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
     )
 
     figure_day = go.Figure(data=data_day, layout=layout)
@@ -160,7 +213,6 @@ def update_output(start_date, end_date):
             "type": "date",
         }
     )
-
 
     return figure_day
 
