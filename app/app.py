@@ -54,12 +54,15 @@ year_end = date(current_year, 12, 31)
 
 # Grafico de acumulação do desmatamento
 # dff = df_decremento_municipio["area_ha"].sort_index().cumsum(skipna=False)
-dff = df_decremento_municipio.query("@year_start <= index <= @year_end")["area_ha"].sort_index().cumsum(skipna=False)
+dff_filter = df_decremento_municipio.query("@year_start <= index <= @year_end")["area_ha"]
+dff = dff_filter.groupby([dff_filter.index]).sum().cumsum()
 
 data = go.Scatter(
     x=dff.index,
+    y=dff,
     mode="lines",
 )
+
 layout = go.Layout(
     title="Acumulado de Desflorestamento",
     xaxis={"title": "Data"},
@@ -103,7 +106,7 @@ app.layout = dbc.Container(
                     md=8,
                     xs=12,
                     style={"backgroundColor": "green"},
-                    class_name="p-0"
+                    class_name="p-0",
                 ),
                 dbc.Col(
                     [
@@ -129,8 +132,7 @@ app.layout = dbc.Container(
             ],
             style={"flexGrow": "1"},
         ),
-        dbc.Row(
-            [dbc.Col([html.P("FOOTER")])]),
+        dbc.Row([dbc.Col([html.P("FOOTER")])]),
     ],
     fluid=True,
     class_name="bg-primary text-white",
