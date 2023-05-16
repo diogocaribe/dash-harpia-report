@@ -33,12 +33,12 @@ wms = dl.WMSTileLayer(
 leaflet_map = dl.Map(
     [
         dl.TileLayer(),
-        wms
-        # dl.GeoJSON(
-        #     data=geojson_monitoramento_dissolve,
-        #     zoomToBounds=True,
-        #     zoomToBoundsOnClick=True,
-        # ),
+        # wms
+        dl.GeoJSON(
+            data=geojson_monitoramento_dissolve,
+            zoomToBounds=True,
+            zoomToBoundsOnClick=True,
+        ),
     ],
     # style={"width": "100%", "height": "100%"},
 )
@@ -53,7 +53,8 @@ year_start = date(current_year, 1, 1)
 year_end = date(current_year, 12, 31)
 
 # Grafico de acumulação do desmatamento
-dff = df_decremento_municipio["area_ha"].sort_index().cumsum(skipna=False)
+# dff = df_decremento_municipio["area_ha"].sort_index().cumsum(skipna=False)
+dff = df_decremento_municipio.query("@year_start <= index <= @year_end")["area_ha"].sort_index().cumsum(skipna=False)
 
 data = go.Scatter(
     x=dff.index,
@@ -220,4 +221,4 @@ def update_output(start_date, end_date):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)
