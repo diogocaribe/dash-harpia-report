@@ -184,37 +184,6 @@ def update_output(start_date, end_date):
     )
     grafico_dia.update_layout(
         xaxis={
-            "rangeselector": {
-                "buttons": list(
-                    [
-                        {
-                            "count": 1,
-                            "label": "1m",
-                            "step": "month",
-                            "stepmode": "backward",
-                        },
-                        {
-                            "count": 6,
-                            "label": "6m",
-                            "step": "month",
-                            "stepmode": "backward",
-                        },
-                        {
-                            "count": 1,
-                            "label": "YTD",
-                            "step": "year",
-                            "stepmode": "todate",
-                        },
-                        {
-                            "count": 1,
-                            "label": "1y",
-                            "step": "year",
-                            "stepmode": "backward",
-                        },
-                        {"step": "all"},
-                    ]
-                )
-            },
             "rangeslider": {"visible": True},
             "type": "date",
         }
