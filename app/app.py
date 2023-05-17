@@ -73,7 +73,7 @@ layout = go.Layout(
     modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
 )
 
-figure_line = go.Figure(data=data, layout=layout)
+grafico_acumulado_tempo = go.Figure(data=data, layout=layout)
 ####################################################
 
 # Selecionador de datas inicial e final
@@ -114,7 +114,7 @@ app.layout = dbc.Container(
                     [
                         dcc.Graph(
                             id="example-graph",
-                            figure=figure_line,
+                            figure=grafico_acumulado_tempo,
                             config={"displaylogo": False, "scrollZoom": True},
                         ),
                         html.Div(
