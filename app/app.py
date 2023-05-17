@@ -18,7 +18,7 @@ external_stylesheets = [dbc.themes.BOOTSTRAP]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 header = html.Header(
-    [html.H1("MONITORAMENTO VEGETAÇÃO"), html.H4("Harpia")],
+    [html.H1("M VEGETAÇÃO"), html.H4("Harpia")],
     className="header bg-primary text-white text-center p-0 m-0",
 )
 
@@ -107,13 +107,12 @@ app.layout = dbc.Container(
                     [leaflet_map],
                     md=8,
                     xs=12,
-                    style={"backgroundColor": "green"},
                     class_name="p-0",
                 ),
                 dbc.Col(
                     [
                         dcc.Graph(
-                            id="example-graph",
+                            id="grafico-acumulado-tempo",
                             figure=grafico_acumulado_tempo,
                             config={"displaylogo": False, "scrollZoom": True},
                         ),
@@ -129,7 +128,7 @@ app.layout = dbc.Container(
                     ],
                     md=4,
                     xs=12,
-                    style={"backgroundColor": "blue"},
+                    className="bg-light",
                 ),
             ],
             style={"flexGrow": "1"},
