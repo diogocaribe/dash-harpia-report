@@ -54,12 +54,12 @@ year_end = date(current_year, 12, 31)
 
 ############################ Grafico de acumulação ############################
 # Grafico de acumulação do desmatamento ao longo do tempo
-dff_filter = df_decremento_municipio.query("@year_start <= index <= @year_end")["area_ha"]
-dff = dff_filter.groupby([dff_filter.index]).sum().cumsum()
+dff_filter_acumulacao = df_decremento_municipio.query("@year_start <= index <= @year_end")["area_ha"]
+dff_acumulacao = dff_filter_acumulacao.groupby([dff_filter_acumulacao.index]).sum().cumsum()
 
-data = go.Scatter(
-    x=dff.index,
-    y=dff,
+data_acumulacao = go.Scatter(
+    x=dff_acumulacao.index,
+    y=dff_acumulacao,
     mode="lines",
 )
 
@@ -73,8 +73,27 @@ layout = go.Layout(
     modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
 )
 
-grafico_acumulado_tempo = go.Figure(data=data, layout=layout)
+grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
 ###############################################################################
+
+dff_filter_municipio = df_decremento_municipio.query("@year_start <= index <= @year_end")
+
+data_municipio = go.Bar(
+        x=dff_acumulacao.index,
+        y=dff_acumulacao["area_ha"],
+        customdata=np.stack(dff_acumulacao["nome"], axis=-1),
+    )
+layout = go.Layout(
+    title="Desflorestamento por Tempo",
+    xaxis={"title": "Data"},
+    yaxis={"title": "Área (ha)"},
+    showlegend=False,
+    separators=".",
+    modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
+)
+
+grafico_municipio = go.Figure(data=data_municipio, layout=layout)
+
 
 # Selecionador de datas inicial e final
 date_picker = html.Div(
