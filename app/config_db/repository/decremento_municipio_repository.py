@@ -7,7 +7,7 @@ class DecrementoMunicipioRepository:
     def select_all(self):
         with DBConnectionHandler() as db:
             try:
-                data = data = db.session.query(DecrementoMunicipio).all()
+                data = db.session.query(DecrementoMunicipio).all()
                 return data
             except Exception as exception:
                 db.session.rollback()
