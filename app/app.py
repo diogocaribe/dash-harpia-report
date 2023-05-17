@@ -54,8 +54,12 @@ year_end = date(current_year, 12, 31)
 
 ############################ Grafico de acumulação ############################
 # Grafico de acumulação do desmatamento ao longo do tempo
-dff_filter_acumulacao = df_decremento_municipio.query("@year_start <= index <= @year_end")["area_ha"]
-dff_acumulacao = dff_filter_acumulacao.groupby([dff_filter_acumulacao.index]).sum().cumsum()
+dff_filter_acumulacao = df_decremento_municipio.query(
+    "@year_start <= index <= @year_end"
+)["area_ha"]
+dff_acumulacao = (
+    dff_filter_acumulacao.groupby([dff_filter_acumulacao.index]).sum().cumsum()
+)
 
 data_acumulacao = go.Scatter(
     x=dff_acumulacao.index,
@@ -66,8 +70,7 @@ data_acumulacao = go.Scatter(
 layout = go.Layout(
     title="Acumulado de Desflorestamento",
     xaxis={"title": "Data"},
-    yaxis={"title": "Área (ha)",
-           "hoverformat": ".2f"},
+    yaxis={"title": "Área (ha)", "hoverformat": ".2f"},
     showlegend=False,
     separators=".",
     modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
@@ -76,19 +79,22 @@ layout = go.Layout(
 grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
 ###############################################################################
 
-dff_filter_municipio = df_decremento_municipio.query("@year_start <= index <= @year_end")
-dff_municipio = dff_filter_municipio.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
+dff_filter_municipio = df_decremento_municipio.query(
+    "@year_start <= index <= @year_end"
+)
+dff_municipio = (
+    dff_filter_municipio.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
+)
 
 data_municipio = go.Bar(
-        x=dff_municipio.area_ha,
-        y=dff_municipio.index,
-        orientation='h',
-    )
+    x=dff_municipio.area_ha,
+    y=dff_municipio.index,
+    orientation="h",
+)
 layout = go.Layout(
     title="Desflorestamento por Município",
     xaxis={"title": "Área (ha)"},
-    yaxis={"title": "Município",
-           "autorange":"reversed"},
+    yaxis={"title": "Município", "autorange": "reversed"},
     showlegend=False,
     separators=".",
     modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
@@ -109,7 +115,7 @@ date_picker = html.Div(
             number_of_months_shown=2,
             display_format="DD/MM/YYYY",
         ),
-    ],
+    ]
 )
 
 app.layout = dbc.Container(
@@ -180,7 +186,7 @@ app.layout = dbc.Container(
 )
 def update_output(start_date, end_date):
     """
-    Oi.
+        Oi.
     """
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
