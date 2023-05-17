@@ -77,16 +77,18 @@ grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
 ###############################################################################
 
 dff_filter_municipio = df_decremento_municipio.query("@year_start <= index <= @year_end")
+dff_municipio = dff_filter_municipio.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
 
 data_municipio = go.Bar(
-        x=dff_acumulacao.index,
-        y=dff_acumulacao["area_ha"],
-        customdata=np.stack(dff_acumulacao["nome"], axis=-1),
+        x=dff_municipio.area_ha,
+        y=dff_municipio.index,
+        orientation='h',
     )
 layout = go.Layout(
-    title="Desflorestamento por Tempo",
-    xaxis={"title": "Data"},
-    yaxis={"title": "Área (ha)"},
+    title="Desflorestamento por Município",
+    xaxis={"title": "Área (ha)"},
+    yaxis={"title": "Município",
+           "autorange":"reversed"},
     showlegend=False,
     separators=".",
     modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
@@ -143,6 +145,11 @@ app.layout = dbc.Container(
                                     config={"displaylogo": False, "scrollZoom": True},
                                 ),
                             ]
+                        ),
+                        dcc.Graph(
+                            id="grafico-municipio",
+                            figure=grafico_municipio,
+                            config={"displaylogo": False, "scrollZoom": True},
                         ),
                     ],
                     md=4,
