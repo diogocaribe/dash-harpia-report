@@ -121,7 +121,7 @@ app.layout = dbc.Container(
                             children=[
                                 date_picker,
                                 dcc.Graph(
-                                    id="grafico-desmatamento-tempo",
+                                    id="grafico-dia",
                                     config={"displaylogo": False, "scrollZoom": True},
                                 ),
                             ]
@@ -147,7 +147,7 @@ app.layout = dbc.Container(
 
 
 @app.callback(
-    Output("grafico-desmatamento-tempo", "figure"),
+    Output("grafico-dia", "figure"),
     [
         Input("my-date-picker-range", "start_date"),
         Input("my-date-picker-range", "end_date"),
@@ -166,7 +166,6 @@ def update_output(start_date, end_date):
         x=dff.index,
         y=dff["area_ha"],
         customdata=np.stack(dff["nome"], axis=-1),
-        # marker={"color" : dff["area_ha"], "colorscale":'agsunset'}
     )
     layout = go.Layout(
         title="Desflorestamento por Tempo",
@@ -177,13 +176,13 @@ def update_output(start_date, end_date):
         modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
     )
 
-    figure_day = go.Figure(data=data_day, layout=layout)
+    grafico_dia = go.Figure(data=data_day, layout=layout)
 
-    figure_day.update_yaxes(fixedrange=False)
-    figure_day.update_traces(
+    grafico_dia.update_yaxes(fixedrange=False)
+    grafico_dia.update_traces(
         hovertemplate="""Município: %{customdata}<br>Data:%{x}<br>Área (ha): %{value:.2f}<extra></extra>"""
     )
-    figure_day.update_layout(
+    grafico_dia.update_layout(
         xaxis={
             "rangeselector": {
                 "buttons": list(
@@ -221,7 +220,7 @@ def update_output(start_date, end_date):
         }
     )
 
-    return figure_day
+    return grafico_dia
 
 
 if __name__ == "__main__":
