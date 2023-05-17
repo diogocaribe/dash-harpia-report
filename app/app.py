@@ -18,7 +18,7 @@ external_stylesheets = [dbc.themes.BOOTSTRAP]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 header = html.Header(
-    [html.H1("M VEGETAÇÃO"), html.H4("Harpia")],
+    [html.H1("Monitoramento Vegetação"), html.H2("Harpia")],
     className="header bg-primary text-white text-center p-0 m-0",
 )
 
@@ -52,7 +52,7 @@ current_year = date.today().year
 year_start = date(current_year, 1, 1)
 year_end = date(current_year, 12, 31)
 
-############### Grafico de acumulação ###############
+############################ Grafico de acumulação ############################
 # Grafico de acumulação do desmatamento ao longo do tempo
 dff_filter = df_decremento_municipio.query("@year_start <= index <= @year_end")["area_ha"]
 dff = dff_filter.groupby([dff_filter.index]).sum().cumsum()
@@ -74,7 +74,7 @@ layout = go.Layout(
 )
 
 grafico_acumulado_tempo = go.Figure(data=data, layout=layout)
-####################################################
+###############################################################################
 
 # Selecionador de datas inicial e final
 date_picker = html.Div(
