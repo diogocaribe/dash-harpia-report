@@ -1,6 +1,7 @@
 """Package to treat data"""
 import json
 
+
 from config_db.repository.decremento_municipio_repository import \
     DecrementoMunicipioRepository
 from config_db.repository.monitoramento_dissolve_repository import \
@@ -13,6 +14,9 @@ monitoramentodissolverepo = MonitoramentoDissolveRepository()
 gdf_monitramento_dissolve = monitoramentodissolverepo.gdf_select_all()
 # Transformação para geojson para adicionar ao mapa --> Se for utilizar
 geojson_monitoramento_dissolve = json.loads(gdf_monitramento_dissolve.to_json())
+
+# Testanto uma novo processamento como geojson
+# geojson_monitoramento_dissolve_ = monitoramentodissolverepo.select_all_geojson()
 
 # Decremento Município
 df_decremento_municipio = DecrementoMunicipioRepository().df_select_all()
