@@ -10,7 +10,8 @@ import dash_leaflet as dl
 import numpy as np
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
-from data import df_decremento_municipio, geojson_monitoramento_dissolve
+from data import df_decremento_municipio, geojson_monitoramento_dissolve #geojson_monitoramento_dissolve_, geojson_monitoramento_dissolve
+
 
 # css para deixar o layout bonito
 external_stylesheets = [dbc.themes.BOOTSTRAP]
@@ -35,6 +36,7 @@ leaflet_map = dl.Map(
         dl.TileLayer(),
         # wms
         dl.GeoJSON(
+            # data=geojson_monitoramento_dissolve_.first()[0],
             data=geojson_monitoramento_dissolve,
             zoomToBounds=True,
             zoomToBoundsOnClick=True,
