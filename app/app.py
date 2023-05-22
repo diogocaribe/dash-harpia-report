@@ -248,6 +248,7 @@ def update_output_grafico_municipio(start_date, end_date):
         x=dff_municipio.area_ha,
         y=dff_municipio.index,
         orientation="h",
+        text=dff_municipio.area_ha
     )
     layout = go.Layout(
         title="Desflorestamento por Município",
