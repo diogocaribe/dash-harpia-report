@@ -123,15 +123,14 @@ app.layout = dbc.Container(
                                     id="grafico-dia",
                                     config={"displaylogo": False, "scrollZoom": True},
                                 ),
+                                dcc.Graph(
+                                    id="grafico-municipio",
+                                    config={"displaylogo": False, "scrollZoom": True},
+                                ),
                             ]
-                        ),
-                        dcc.Graph(
-                            id="grafico-municipio",
-                            config={"displaylogo": False, "scrollZoom": True},
                         ),
                     ],
                     md=5,
-                    className="bg-light",
                 ),
             ],
             style={"flexGrow": "1"},
@@ -265,4 +264,4 @@ def update_output_grafico_municipio(start_date, end_date):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=False)
+    app.run_server(debug=True)
