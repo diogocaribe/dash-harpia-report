@@ -103,11 +103,10 @@ app.layout = dbc.Container(
                     [
                         dl.Map(
                             [dl.TileLayer(), dl.GeoJSON(id="geojson-mapa")],
-                            preferCanvas=True,
+                            preferCanvas=True, maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]], 
                         )
                     ],
                     md=7,
-                    # xs=12,
                     class_name="p-0",
                 ),
                 dbc.Col(
@@ -132,7 +131,6 @@ app.layout = dbc.Container(
                         ),
                     ],
                     md=5,
-                    # xs=12,
                     className="bg-light",
                 ),
             ],
