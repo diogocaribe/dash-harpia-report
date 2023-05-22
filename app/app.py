@@ -33,10 +33,10 @@ leaflet_map = dl.Map(
         dl.GeoJSON(
             data=json.loads(gdf_monitramento_dissolve.to_json()),
             zoomToBounds=True,
-            zoomToBoundsOnClick=True
+            zoomToBoundsOnClick=True,
         ),
     ],
-    preferCanvas=True
+    preferCanvas=True,
 )
 
 # Datas iniciais e finais do dataframe
@@ -100,7 +100,12 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    [leaflet_map],
+                    [
+                        dl.Map(
+                            [dl.TileLayer(), dl.GeoJSON(id="geojson-mapa")],
+                            preferCanvas=True,
+                        )
+                    ],
                     md=7,
                     # xs=12,
                     class_name="p-0",
@@ -144,6 +149,33 @@ app.layout = dbc.Container(
     },
 )
 
+
+# Callback mapa
+@app.callback(
+    Output("geojson-mapa", "children"),
+    [
+        Input("my-date-picker-range", "start_date"),
+        Input("my-date-picker-range", "end_date"),
+    ],
+)
+def update_output_mapa(start_date, end_date):
+    """
+    Oi.
+    """
+    date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
+    date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
+
+    dff = gdf_monitramento_dissolve.query("@date1 <= index <= @date2")
+
+    map_geojson = dl.GeoJSON(
+        data=json.loads(dff.to_json()),
+        zoomToBounds=True,
+        zoomToBoundsOnClick=True,
+    )
+
+    return map_geojson
+
+
 # Callback no grafico de desmatamento diário
 # TODO adicinar um filtro aninhado (chaincallback) para agrupar o tempo (D, M, Y)
 @app.callback(
@@ -155,7 +187,7 @@ app.layout = dbc.Container(
 )
 def update_output_grafico_dia(start_date, end_date):
     """
-        Oi.
+    Oi.
     """
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
@@ -192,7 +224,7 @@ def update_output_grafico_dia(start_date, end_date):
     return grafico_dia
 
 
-
+# Callback no grafico de desmatamento por município
 @app.callback(
     Output("grafico-municipio", "figure"),
     [
@@ -202,18 +234,18 @@ def update_output_grafico_dia(start_date, end_date):
 )
 def update_output_grafico_municipio(start_date, end_date):
     """
-        Oi.
+    Oi.
     """
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
 
     dff = df_decremento_municipio.query("@date1 <= index <= @date2")
 
-    dff_filter_municipio = df_decremento_municipio.query(
-    "@date1 <= index <= @date2"
-    )
+    dff_filter_municipio = df_decremento_municipio.query("@date1 <= index <= @date2")
     dff_municipio = (
-        dff_filter_municipio.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
+        dff_filter_municipio.groupby(["nome"])
+        .sum()
+        .sort_values("area_ha", ascending=False)
     )
     data_municipio = go.Bar(
         x=dff_municipio.area_ha,
@@ -232,6 +264,7 @@ def update_output_grafico_municipio(start_date, end_date):
     grafico_municipio = go.Figure(data=data_municipio, layout=layout)
 
     return grafico_municipio
+
 
 if __name__ == "__main__":
     app.run_server(debug=False)
