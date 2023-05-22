@@ -3,6 +3,7 @@
 # coding: utf-8
 
 from datetime import date, datetime
+import json
 
 import dash
 import dash_bootstrap_components as dbc
@@ -10,7 +11,7 @@ import dash_leaflet as dl
 import numpy as np
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
-from data import df_decremento_municipio, geojson_monitoramento_dissolve
+from data import df_decremento_municipio, gdf_monitramento_dissolve
 
 
 # css para deixar o layout bonito
@@ -24,26 +25,18 @@ header = html.Header(
 )
 
 # assinc_await
-# wms = dl.WMSTileLayer(
-#     url="http://geoserver-homo.harpia.ba.gov.br/harpia/wms",
-#     layers="monitoramento_dissolve",
-#     format="image/png",
-#     transparent=True,
-# )
+
 
 leaflet_map = dl.Map(
     [
         dl.TileLayer(),
-        # wms
         dl.GeoJSON(
-            data=geojson_monitoramento_dissolve.first()[0],
-            # data=geojson_monitoramento_dissolve,
+            data=json.loads(gdf_monitramento_dissolve.to_json()),
             zoomToBounds=True,
             zoomToBoundsOnClick=True
         ),
     ],
     preferCanvas=True
-    # style={"width": "100%", "height": "100%"},
 )
 
 # Datas iniciais e finais do dataframe
@@ -109,7 +102,7 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [leaflet_map],
                     md=7,
-                    xs=12,
+                    # xs=12,
                     class_name="p-0",
                 ),
                 dbc.Col(
@@ -134,7 +127,7 @@ app.layout = dbc.Container(
                         ),
                     ],
                     md=5,
-                    xs=12,
+                    # xs=12,
                     className="bg-light",
                 ),
             ],
