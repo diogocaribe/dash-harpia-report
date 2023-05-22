@@ -10,7 +10,7 @@ import dash_leaflet as dl
 import numpy as np
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
-from data import df_decremento_municipio, geojson_monitoramento_dissolve #geojson_monitoramento_dissolve_, geojson_monitoramento_dissolve
+from data import df_decremento_municipio, geojson_monitoramento_dissolve
 
 
 # css para deixar o layout bonito
@@ -24,24 +24,25 @@ header = html.Header(
 )
 
 # assinc_await
-wms = dl.WMSTileLayer(
-    url="http://geoserver-homo.harpia.ba.gov.br/harpia/wms",
-    layers="monitoramento_dissolve",
-    format="image/png",
-    transparent=True,
-)
+# wms = dl.WMSTileLayer(
+#     url="http://geoserver-homo.harpia.ba.gov.br/harpia/wms",
+#     layers="monitoramento_dissolve",
+#     format="image/png",
+#     transparent=True,
+# )
 
 leaflet_map = dl.Map(
     [
         dl.TileLayer(),
         # wms
         dl.GeoJSON(
-            # data=geojson_monitoramento_dissolve_.first()[0],
-            data=geojson_monitoramento_dissolve,
+            data=geojson_monitoramento_dissolve.first()[0],
+            # data=geojson_monitoramento_dissolve,
             zoomToBounds=True,
-            zoomToBoundsOnClick=True,
+            zoomToBoundsOnClick=True
         ),
     ],
+    preferCanvas=True
     # style={"width": "100%", "height": "100%"},
 )
 
@@ -62,13 +63,11 @@ dff_filter_acumulacao = df_decremento_municipio.query(
 dff_acumulacao = (
     dff_filter_acumulacao.groupby([dff_filter_acumulacao.index]).sum().cumsum()
 )
-
 data_acumulacao = go.Scatter(
     x=dff_acumulacao.index,
     y=dff_acumulacao,
     mode="lines",
 )
-
 layout = go.Layout(
     title="Acumulado de Desflorestamento",
     xaxis={"title": "Data"},
@@ -81,31 +80,6 @@ layout = go.Layout(
 grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
 ###############################################################################
 
-dff_filter_municipio = df_decremento_municipio.query(
-    "@year_start <= index <= @year_end"
-)
-dff_municipio = (
-    dff_filter_municipio.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
-)
-
-data_municipio = go.Bar(
-    x=dff_municipio.area_ha,
-    y=dff_municipio.index,
-    orientation="h",
-)
-layout = go.Layout(
-    title="Desflorestamento por Município",
-    xaxis={"title": "Área (ha)"},
-    yaxis={"title": "Município", "autorange": "reversed"},
-    showlegend=False,
-    separators=".",
-    modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
-)
-
-grafico_municipio = go.Figure(data=data_municipio, layout=layout)
-
-
-# Selecionador de datas inicial e final
 date_picker = html.Div(
     [
         dcc.DatePickerRange(
@@ -134,7 +108,7 @@ app.layout = dbc.Container(
             [
                 dbc.Col(
                     [leaflet_map],
-                    md=8,
+                    md=7,
                     xs=12,
                     class_name="p-0",
                 ),
@@ -156,18 +130,17 @@ app.layout = dbc.Container(
                         ),
                         dcc.Graph(
                             id="grafico-municipio",
-                            figure=grafico_municipio,
                             config={"displaylogo": False, "scrollZoom": True},
                         ),
                     ],
-                    md=4,
+                    md=5,
                     xs=12,
                     className="bg-light",
                 ),
             ],
             style={"flexGrow": "1"},
         ),
-        dbc.Row([dbc.Col([html.P("")])]),
+        dbc.Row([dbc.Col([html.P("Footer")])]),
     ],
     fluid=True,
     class_name="bg-primary text-white",
@@ -178,7 +151,8 @@ app.layout = dbc.Container(
     },
 )
 
-
+# Callback no grafico de desmatamento diário
+# TODO adicinar um filtro aninhado (chaincallback) para agrupar o tempo (D, M, Y)
 @app.callback(
     Output("grafico-dia", "figure"),
     [
@@ -186,7 +160,7 @@ app.layout = dbc.Container(
         Input("my-date-picker-range", "end_date"),
     ],
 )
-def update_output(start_date, end_date):
+def update_output_grafico_dia(start_date, end_date):
     """
         Oi.
     """
@@ -224,6 +198,47 @@ def update_output(start_date, end_date):
 
     return grafico_dia
 
+
+
+@app.callback(
+    Output("grafico-municipio", "figure"),
+    [
+        Input("my-date-picker-range", "start_date"),
+        Input("my-date-picker-range", "end_date"),
+    ],
+)
+def update_output_grafico_municipio(start_date, end_date):
+    """
+        Oi.
+    """
+    date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
+    date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
+
+    dff = df_decremento_municipio.query("@date1 <= index <= @date2")
+
+    dff_filter_municipio = df_decremento_municipio.query(
+    "@date1 <= index <= @date2"
+    )
+    dff_municipio = (
+        dff_filter_municipio.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
+    )
+    data_municipio = go.Bar(
+        x=dff_municipio.area_ha,
+        y=dff_municipio.index,
+        orientation="h",
+    )
+    layout = go.Layout(
+        title="Desflorestamento por Município",
+        xaxis={"title": "Área (ha)"},
+        yaxis={"title": "Município", "autorange": "reversed"},
+        showlegend=False,
+        separators=".",
+        modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
+    )
+
+    grafico_municipio = go.Figure(data=data_municipio, layout=layout)
+
+    return grafico_municipio
 
 if __name__ == "__main__":
     app.run_server(debug=False)
