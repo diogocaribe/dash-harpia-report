@@ -1,5 +1,4 @@
-"""Package to treat data"""
-import json
+"""Módulo de dados"""
 
 
 from config_db.repository.decremento_municipio_repository import \
