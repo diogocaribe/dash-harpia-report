@@ -100,7 +100,7 @@ app.layout = dbc.Container(
                     [
                         dl.Map(
                             [dl.TileLayer(), dl.GeoJSON(id="geojson-mapa")],
-                            preferCanvas=True, bounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
+                            preferCanvas=True, maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
                         )
                     ],
                     md=7,
@@ -124,7 +124,6 @@ app.layout = dbc.Container(
                                     id="grafico-municipio",
                                     config={"displaylogo": False, "scrollZoom": True},
                                 ),
-                                dcc.Store(id="monitoramento-municipio")
                             ]
                         ),
                     ],
@@ -133,7 +132,8 @@ app.layout = dbc.Container(
             ],
             style={"flexGrow": "1"},
         ),
-        dbc.Row([dbc.Col([html.P("Footer")])])
+        dbc.Row([dbc.Col([html.P("Footer")])]),
+        dcc.Store(id="monitoramento-municipio")
     ],
     fluid=True,
     class_name="bg-primary text-white",
