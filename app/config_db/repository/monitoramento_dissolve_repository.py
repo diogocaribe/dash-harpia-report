@@ -62,7 +62,7 @@ class MonitoramentoDissolveRepository:
                     SELECT row_to_json(fc)
                     FROM (
                         SELECT 'FeatureCollection' AS type, array_to_json(array_agg(f)) AS features
-                        FROM (SELECT 'Feature' As type, ST_AsGeoJSON(st_transform(lg.geom, 4326))::json As geometry, 
+                        FROM (SELECT 'Feature' As type, ST_AsGeoJSON(lg.geom)::json As geometry, 
                     (
                         SELECT row_to_json(t) 
                         FROM (SELECT id, view_date, class_name, area_ha) t
