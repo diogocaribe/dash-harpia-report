@@ -13,7 +13,7 @@ import numpy as np
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
 from data import df_decremento_municipio, gdf_monitramento_dissolve
-
+import pandas as pd
 
 # css para deixar o layout bonito
 external_stylesheets = [dbc.themes.BOOTSTRAP]
@@ -26,8 +26,6 @@ header = html.Header(
 )
 
 # assinc_await
-
-
 leaflet_map = dl.Map(
     [
         dl.TileLayer(),
@@ -134,11 +132,12 @@ app.layout = dbc.Container(
             style={"flexGrow": "1"},
         ),
         dbc.Row([dbc.Col([html.P("Footer")])]),
+        dcc.Store(id="monitoramento-municipio")
     ],
     fluid=True,
     class_name="bg-primary text-white",
     style={
-        "height": "100vh",
+        "height": "100%",
         "display": "flex",
         "flexDirection": "column",
     },
@@ -170,24 +169,40 @@ def update_output_mapa(dates):
 
     return map_geojson
 
-
-# Callback no grafico de desmatamento diário
-# TODO adicinar um filtro aninhado (chaincallback) para agrupar o tempo (D, M, Y)
+# DataStore monitoramento-desmatamento-municipio
 @app.callback(
-    Output("grafico-dia", "figure"),
+    Output("monitoramento-municipio", "data"),
     Input("date-picker-range", "value"),
 )
-def update_output_grafico_dia(dates):
+def filter_data_monitoramento_municipio(dates):
     """
-    Oi.
+        Metodo que filtra os dados e retorna para os callbacks
     """
+
     start_date = dates[0]
     end_date = dates[1]
 
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
 
+    # some expensive data processing step
     dff = df_decremento_municipio.query("@date1 <= index <= @date2")
+
+    # more generally, this line would be
+    # json.dumps(cleaned_df)
+    return dff.to_json(date_format='iso', orient='split')
+
+# Callback no grafico de desmatamento diário
+# TODO adicinar um filtro aninhado (chaincallback) para agrupar o tempo (D, M, Y)
+@app.callback(
+    Output("grafico-dia", "figure"),
+    Input("monitoramento-municipio", "data"),
+)
+def update_output_grafico_dia(dados):
+    """
+        Grafico de atualização de dados do dia
+    """
+    dff = pd.read_json(dados, orient='split')
 
     data_day = go.Bar(
         x=dff.index,
@@ -209,12 +224,6 @@ def update_output_grafico_dia(dates):
     grafico_dia.update_traces(
         hovertemplate="""Município: %{customdata}<br>Data:%{x}<br>Área (ha): %{value:.2f}<extra></extra>"""
     )
-    grafico_dia.update_layout(
-        xaxis={
-            "rangeslider": {"visible": True},
-            "type": "date",
-        }
-    )
 
     return grafico_dia
 
@@ -222,23 +231,16 @@ def update_output_grafico_dia(dates):
 # Callback no grafico de desmatamento por município
 @app.callback(
     Output("grafico-municipio", "figure"),
-    Input("date-picker-range", "value"),
+    Input("monitoramento-municipio", "data"),
 )
-def update_output_grafico_municipio(dates):
+def update_output_grafico_municipio(dados):
     """
         Função para atualização do grafico de estatística por município.
     """
-    start_date = dates[0]
-    end_date = dates[1]
-
-    date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
-    date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
-
-    dff = df_decremento_municipio.query("@date1 <= index <= @date2")
-
-    dff_filter_municipio = df_decremento_municipio.query("@date1 <= index <= @date2")
+    dff = pd.read_json(dados, orient='split')
+    
     dff_municipio = (
-        dff_filter_municipio.groupby(["nome"])
+        dff.groupby(["nome"])
         .sum()
         .sort_values("area_ha", ascending=False)
     )
