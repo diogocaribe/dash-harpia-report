@@ -7,6 +7,7 @@ import json
 
 import dash
 import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
 import dash_leaflet as dl
 import numpy as np
 import plotly.graph_objects as go
@@ -75,14 +76,11 @@ grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
 
 date_picker = html.Div(
     [
-        dcc.DatePickerRange(
-            id="my-date-picker-range",
-            min_date_allowed=min_date,
-            max_date_allowed=max_date,
-            start_date=year_start,
-            end_date=max_date,
-            number_of_months_shown=2,
-            display_format="DD/MM/YYYY",
+        dmc.DateRangePicker(
+            id="date-picker-range",
+            minDate=min_date,
+            value=[year_start, max_date],
+            inputFormat="DD/MM/YYYY",
         ),
     ]
 )
@@ -150,15 +148,15 @@ app.layout = dbc.Container(
 # Callback mapa
 @app.callback(
     Output("geojson-mapa", "children"),
-    [
-        Input("my-date-picker-range", "start_date"),
-        Input("my-date-picker-range", "end_date"),
-    ],
+    Input("date-picker-range", "value"),
 )
-def update_output_mapa(start_date, end_date):
+def update_output_mapa(dates):
     """
-    Oi.
+        Função para atualização dos dados do mapa.
     """
+    start_date = dates[0]
+    end_date = dates[1]
+
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
 
@@ -177,15 +175,15 @@ def update_output_mapa(start_date, end_date):
 # TODO adicinar um filtro aninhado (chaincallback) para agrupar o tempo (D, M, Y)
 @app.callback(
     Output("grafico-dia", "figure"),
-    [
-        Input("my-date-picker-range", "start_date"),
-        Input("my-date-picker-range", "end_date"),
-    ],
+    Input("date-picker-range", "value"),
 )
-def update_output_grafico_dia(start_date, end_date):
+def update_output_grafico_dia(dates):
     """
     Oi.
     """
+    start_date = dates[0]
+    end_date = dates[1]
+
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
 
@@ -224,15 +222,15 @@ def update_output_grafico_dia(start_date, end_date):
 # Callback no grafico de desmatamento por município
 @app.callback(
     Output("grafico-municipio", "figure"),
-    [
-        Input("my-date-picker-range", "start_date"),
-        Input("my-date-picker-range", "end_date"),
-    ],
+    Input("date-picker-range", "value"),
 )
-def update_output_grafico_municipio(start_date, end_date):
+def update_output_grafico_municipio(dates):
     """
-    Oi.
+        Função para atualização do grafico de estatística por município.
     """
+    start_date = dates[0]
+    end_date = dates[1]
+
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
 
