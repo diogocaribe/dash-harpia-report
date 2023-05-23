@@ -77,6 +77,7 @@ date_picker = html.Div(
         dmc.DateRangePicker(
             id="date-picker-range",
             minDate=min_date,
+            maxDate=max_date,
             value=[year_start, max_date],
             inputFormat="DD/MM/YYYY",
         ),
@@ -99,7 +100,7 @@ app.layout = dbc.Container(
                     [
                         dl.Map(
                             [dl.TileLayer(), dl.GeoJSON(id="geojson-mapa")],
-                            preferCanvas=True, maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
+                            preferCanvas=True, bounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
                         )
                     ],
                     md=7,
@@ -123,6 +124,7 @@ app.layout = dbc.Container(
                                     id="grafico-municipio",
                                     config={"displaylogo": False, "scrollZoom": True},
                                 ),
+                                dcc.Store(id="monitoramento-municipio")
                             ]
                         ),
                     ],
@@ -131,13 +133,12 @@ app.layout = dbc.Container(
             ],
             style={"flexGrow": "1"},
         ),
-        dbc.Row([dbc.Col([html.P("Footer")])]),
-        dcc.Store(id="monitoramento-municipio")
+        dbc.Row([dbc.Col([html.P("Footer")])])
     ],
     fluid=True,
     class_name="bg-primary text-white",
     style={
-        "height": "100%",
+        "height": "100vh",
         "display": "flex",
         "flexDirection": "column",
     },
@@ -185,11 +186,8 @@ def filter_data_monitoramento_municipio(dates):
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
 
-    # some expensive data processing step
     dff = df_decremento_municipio.query("@date1 <= index <= @date2")
 
-    # more generally, this line would be
-    # json.dumps(cleaned_df)
     return dff.to_json(date_format='iso', orient='split')
 
 # Callback no grafico de desmatamento diário
