@@ -2,18 +2,18 @@
 
 # coding: utf-8
 
-from datetime import date, datetime
 import json
+from datetime import date, datetime
 
 import dash
 import dash_bootstrap_components as dbc
-import dash_mantine_components as dmc
 import dash_leaflet as dl
+import dash_mantine_components as dmc
 import numpy as np
+import pandas as pd
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
 from data import df_decremento_municipio, gdf_monitramento_dissolve
-import pandas as pd
 
 # css para deixar o layout bonito
 external_stylesheets = [dbc.themes.BOOTSTRAP]
@@ -188,7 +188,7 @@ def update_output_mapa(dates):
 )
 def filter_data_monitoramento_municipio(dates):
     """
-    Metodo que filtra os dados e retorna para os callbacks
+    Metodo que filtra os dados e retorna para os callbacks.
     """
 
     start_date = dates[0]
@@ -226,7 +226,7 @@ def update_output_grafico_dia(dados):
     )
 
     grafico_dia = go.Figure(data=data_day, layout=layout)
-    
+
     grafico_dia.update_layout(template=template_graph)
     grafico_dia.update_yaxes(fixedrange=False)
     grafico_dia.update_traces(
