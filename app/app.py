@@ -47,6 +47,17 @@ current_year = date.today().year
 year_start = date(current_year, 1, 1)
 year_end = date(current_year, 12, 31)
 
+template_graph = {
+    "layout": {
+        "modebar": {
+            "remove": ["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"]
+        },
+        "separators": ".",
+        "showlegend": False,
+    }
+}
+
+
 ############################ Grafico de acumulação ############################
 # Grafico de acumulação do desmatamento ao longo do tempo
 dff_filter_acumulacao = df_decremento_municipio.query(
@@ -64,12 +75,10 @@ layout = go.Layout(
     title="Acumulado de Desflorestamento",
     xaxis={"title": "Data"},
     yaxis={"title": "Área (ha)", "hoverformat": ".2f"},
-    showlegend=False,
-    separators=".",
-    modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
 )
 
 grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
+grafico_acumulado_tempo.update_layout(template=template_graph)
 ###############################################################################
 
 date_picker = html.Div(
@@ -100,7 +109,8 @@ app.layout = dbc.Container(
                     [
                         dl.Map(
                             [dl.TileLayer(), dl.GeoJSON(id="geojson-mapa")],
-                            preferCanvas=True, maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
+                            preferCanvas=True,
+                            maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
                         )
                     ],
                     md=7,
@@ -133,7 +143,7 @@ app.layout = dbc.Container(
             style={"flexGrow": "1"},
         ),
         dbc.Row([dbc.Col([html.P("Footer")])]),
-        dcc.Store(id="monitoramento-municipio")
+        dcc.Store(id="monitoramento-municipio"),
     ],
     fluid=True,
     class_name="bg-primary text-white",
@@ -152,7 +162,7 @@ app.layout = dbc.Container(
 )
 def update_output_mapa(dates):
     """
-        Função para atualização dos dados do mapa.
+    Função para atualização dos dados do mapa.
     """
     start_date = dates[0]
     end_date = dates[1]
@@ -170,6 +180,7 @@ def update_output_mapa(dates):
 
     return map_geojson
 
+
 # DataStore monitoramento-desmatamento-municipio
 @app.callback(
     Output("monitoramento-municipio", "data"),
@@ -177,7 +188,7 @@ def update_output_mapa(dates):
 )
 def filter_data_monitoramento_municipio(dates):
     """
-        Metodo que filtra os dados e retorna para os callbacks
+    Metodo que filtra os dados e retorna para os callbacks
     """
 
     start_date = dates[0]
@@ -188,7 +199,8 @@ def filter_data_monitoramento_municipio(dates):
 
     dff = df_decremento_municipio.query("@date1 <= index <= @date2")
 
-    return dff.to_json(date_format='iso', orient='split')
+    return dff.to_json(date_format="iso", orient="split")
+
 
 # Callback no grafico de desmatamento diário
 # TODO adicinar um filtro aninhado (chaincallback) para agrupar o tempo (D, M, Y)
@@ -198,9 +210,9 @@ def filter_data_monitoramento_municipio(dates):
 )
 def update_output_grafico_dia(dados):
     """
-        Grafico de atualização de dados do dia
+    Grafico de atualização de dados do dia
     """
-    dff = pd.read_json(dados, orient='split')
+    dff = pd.read_json(dados, orient="split")
 
     data_day = go.Bar(
         x=dff.index,
@@ -211,13 +223,11 @@ def update_output_grafico_dia(dados):
         title="Desflorestamento por Tempo",
         xaxis={"title": "Data"},
         yaxis={"title": "Área (ha)"},
-        showlegend=False,
-        separators=".",
-        modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
     )
 
     grafico_dia = go.Figure(data=data_day, layout=layout)
-
+    
+    grafico_dia.update_layout(template=template_graph)
     grafico_dia.update_yaxes(fixedrange=False)
     grafico_dia.update_traces(
         hovertemplate="""Município: %{customdata}<br>Data:%{x}<br>Área (ha): %{value:.2f}<extra></extra>"""
@@ -233,32 +243,25 @@ def update_output_grafico_dia(dados):
 )
 def update_output_grafico_municipio(dados):
     """
-        Função para atualização do grafico de estatística por município.
+    Função para atualização do grafico de estatística por município.
     """
-    dff = pd.read_json(dados, orient='split')
-    
-    dff_municipio = (
-        dff.groupby(["nome"])
-        .sum()
-        .sort_values("area_ha", ascending=False)
-    )
+    dff = pd.read_json(dados, orient="split")
+
+    dff_municipio = dff.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
     data_municipio = go.Bar(
         x=dff_municipio.area_ha,
         y=dff_municipio.index,
         orientation="h",
-        text=dff_municipio.area_ha
+        text=dff_municipio.area_ha,
     )
     layout = go.Layout(
         title="Desflorestamento por Município",
         xaxis={"title": "Área (ha)"},
         yaxis={"title": "Município", "autorange": "reversed"},
-        showlegend=False,
-        separators=".",
-        modebar_remove=["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"],
     )
 
     grafico_municipio = go.Figure(data=data_municipio, layout=layout)
-
+    grafico_municipio.update_layout(template=template_graph)
     return grafico_municipio
 
 
