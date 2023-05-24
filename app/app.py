@@ -154,7 +154,6 @@ app.layout = dbc.Container(
     },
 )
 
-
 # Callback mapa
 @app.callback(
     Output("geojson-mapa", "children"),
