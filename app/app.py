@@ -50,7 +50,7 @@ year_end = date(current_year, 12, 31)
 template_graph = {
     "layout": {
         "modebar": {
-            "remove": ["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d"]
+            "remove": ["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d", "autoscale"]
         },
         "separators": ".",
         "showlegend": False,
@@ -252,6 +252,7 @@ def update_output_grafico_municipio(dados):
         y=dff_municipio.index,
         orientation="h",
         text=dff_municipio.area_ha,
+        texttemplate="%{value:.2f}"
     )
     layout = go.Layout(
         title="Desflorestamento por Município",
