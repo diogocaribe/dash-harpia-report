@@ -79,6 +79,7 @@ layout = go.Layout(
 
 grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
 grafico_acumulado_tempo.update_layout(template=template_graph)
+grafico_acumulado_tempo.update_xaxes(range=[year_start, year_end])
 ###############################################################################
 
 date_picker = html.Div(
