@@ -35,7 +35,6 @@ leaflet_map = dl.Map(
             zoomToBoundsOnClick=True,
         ),
     ],
-    preferCanvas=True,
 )
 
 # Datas iniciais e finais do dataframe
@@ -50,7 +49,15 @@ year_end = date(current_year, 12, 31)
 template_graph = {
     "layout": {
         "modebar": {
-            "remove": ["zoom", "pan", "select", "zoomIn", "zoomOut", "lasso2d", "autoscale"]
+            "remove": [
+                "zoom",
+                "pan",
+                "select",
+                "zoomIn",
+                "zoomOut",
+                "lasso2d",
+                "autoscale",
+            ]
         },
         "separators": ".",
         "showlegend": False,
@@ -99,7 +106,7 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    [html.H1("MONITORAMENTO VEGETAÇÃO"), html.H4("Harpia")],
+                    [html.H2("Monitoramento Vegetação"), html.H5("Harpia")],
                     className="d-flex justify-content-between align-items-center",
                 )
             ]
@@ -139,9 +146,11 @@ app.layout = dbc.Container(
                         ),
                     ],
                     md=5,
+                    class_name="p-0",
+                    style={"overflow": "overlay", "height": "90vh",}
                 ),
             ],
-            style={"flexGrow": "1"},
+            className="flex-grow-1",
         ),
         dbc.Row([dbc.Col([html.P("Footer")])]),
         dcc.Store(id="monitoramento-municipio"),
@@ -154,6 +163,7 @@ app.layout = dbc.Container(
         "flexDirection": "column",
     },
 )
+
 
 # Callback mapa
 @app.callback(
@@ -253,7 +263,7 @@ def update_output_grafico_municipio(dados):
         y=dff_municipio.index,
         orientation="h",
         text=dff_municipio.area_ha,
-        texttemplate="%{value:.2f}"
+        texttemplate="%{value:.2f}",
     )
     layout = go.Layout(
         title="Desflorestamento por Município",
