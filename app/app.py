@@ -79,6 +79,9 @@ grafico_acumulado_tempo.update_layout(template=template_graph)
 grafico_acumulado_tempo.update_xaxes(range=[year_start, year_end])
 ###############################################################################
 
+###############################################################################
+######################### Botões para seleção #################################
+###############################################################################
 date_range_picker = dmc.DateRangePicker(
     id="date-picker-range",
     minDate=min_date,
@@ -87,7 +90,10 @@ date_range_picker = dmc.DateRangePicker(
     inputFormat="DD/MM/YYYY",
 )
 
-
+dropdown_temporal = dcc.Dropdown(
+    options=["Diário", "Semanal", "Mensal", "Anual"], value="Diário", clearable=False
+)
+###############################################################################
 
 app.layout = dbc.Container(
     [
@@ -122,6 +128,7 @@ app.layout = dbc.Container(
                         html.Div(
                             children=[
                                 date_range_picker,
+                                dropdown_temporal,
                                 dcc.Graph(
                                     id="grafico-dia",
                                     config={"displaylogo": False, "scrollZoom": True},
