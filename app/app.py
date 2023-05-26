@@ -26,16 +26,6 @@ header = html.Header(
 )
 
 # assinc_await
-leaflet_map = dl.Map(
-    [
-        dl.TileLayer(),
-        dl.GeoJSON(
-            data=json.loads(gdf_monitramento_dissolve.to_json()),
-            zoomToBounds=True,
-            zoomToBoundsOnClick=True,
-        ),
-    ],
-)
 
 # Datas iniciais e finais do dataframe
 max_date = df_decremento_municipio.index.max()
