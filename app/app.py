@@ -256,6 +256,7 @@ def update_output_grafico_municipio(dados):
     dff = pd.read_json(dados, orient="split")
 
     dff_municipio = dff.groupby(["nome"]).sum().sort_values("area_ha", ascending=False)
+    
     data_municipio = go.Bar(
         x=dff_municipio.area_ha,
         y=dff_municipio.index,
@@ -263,13 +264,17 @@ def update_output_grafico_municipio(dados):
         text=dff_municipio.area_ha,
         texttemplate="%{value:.2f}",
     )
-    layout = go.Layout(
-        title="Desflorestamento por Município",
-        xaxis={"title": "Área (ha)"},
-        yaxis={"title": "Município", "autorange": "reversed"},
+
+    grafico_municipio = go.Figure(
+        data=data_municipio,
+        layout_title_text="Desflorestamento por Município",
+        layout = {
+            "title": {"text": "Desflorestamento por Município"},
+            "xaxis": {"title": "Área (ha)"},
+            "yaxis": {"title": "Município", "autorange": "reversed"},
+        }
     )
 
-    grafico_municipio = go.Figure(data=data_municipio, layout=layout)
     grafico_municipio.update_layout(template=template_graph)
     return grafico_municipio
 
