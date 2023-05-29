@@ -125,7 +125,6 @@ app.layout = dbc.Container(
                     html.Div(
                         children=[
                             date_range_picker,
-                            dropdown_temporal,
                             dcc.Graph(
                                 id="grafico-dia",
                                 config={"displaylogo": False, "scrollZoom": True},
