@@ -101,65 +101,57 @@ app.layout = dbc.Container(
             [
                 dbc.Col(
                     [html.H2("Monitoramento Vegetação"), html.H5("Harpia")],
-                    className="d-flex justify-content-between align-items-center",
+                    width=12,
+                    className="bg-primary d-flex justify-content-between align-items-center",
+                    style={"height": "6vh"},
                 )
             ]
         ),
-        dbc.Row(
-            [
-                dbc.Col(
-                    [
-                        dl.Map(
-                            [dl.TileLayer(), dl.GeoJSON(id="geojson-mapa")],
-                            preferCanvas=True,
-                            maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
-                        )
-                    ],
-                    md=7,
-                    class_name="p-0",
-                ),
-                dbc.Col(
-                    [
-                        dcc.Graph(
-                            id="grafico-acumulado-tempo",
-                            figure=grafico_acumulado_tempo,
-                            config={"displaylogo": False, "scrollZoom": True},
-                        ),
-                        html.Div(
-                            children=[
-                                date_range_picker,
-                                dropdown_temporal,
-                                dcc.Graph(
-                                    id="grafico-dia",
-                                    config={"displaylogo": False, "scrollZoom": True},
-                                ),
-                                dcc.Graph(
-                                    id="grafico-municipio",
-                                    config={"displaylogo": False, "scrollZoom": True},
-                                ),
-                            ]
-                        ),
-                    ],
-                    md=5,
-                    class_name="p-0",
-                    style={
-                        "overflow": "overlay",
-                        "height": "90vh",
-                    },
-                ),
-            ],
-            className="flex-grow-1",
-        ),
-        dbc.Row([dbc.Col([html.P("Footer")])]),
+        dbc.Row([
+            dbc.Col(
+                [dl.Map([dl.TileLayer(), dl.GeoJSON(id="geojson-mapa")],
+                    preferCanvas=True,maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],
+                )],
+            width=7,
+            class_name="p-0",
+            ),
+            dbc.Col(
+                [
+                    dcc.Graph(
+                        id="grafico-acumulado-tempo",
+                        figure=grafico_acumulado_tempo,
+                        config={"displaylogo": False, "scrollZoom": True},
+                    ),
+                    html.Div(
+                        children=[
+                            date_range_picker,
+                            dropdown_temporal,
+                            dcc.Graph(
+                                id="grafico-dia",
+                                config={"displaylogo": False, "scrollZoom": True},
+                            ),
+                            dcc.Graph(
+                                id="grafico-municipio",
+                                config={"displaylogo": False, "scrollZoom": True},
+                            ),
+                        ]
+                    ),
+                ],
+            width=5,
+            style={"overflow-y": "scroll", "height": "90vh"},
+            )
+        ]),
+        dbc.Row([
+            dbc.Col([html.P("Footer")],
+            width=12,
+            className="bg-primary",
+            style={"height": "4vh"}
+            )
+        ]),
         dcc.Store(id="monitoramento-municipio"),
     ],
+    class_name="overflow-hidden",
     fluid=True,
-    class_name="bg-primary text-white",
-    style={
-        "height": "100vh",
-        "display": "flex",
-        "flexDirection": "column",
-    },
 )
 
 
