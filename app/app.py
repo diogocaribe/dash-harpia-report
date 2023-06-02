@@ -79,7 +79,23 @@ grafico_acumulado_tempo = px.line(df_empty, x="timedelta", y="cumsum", color='ye
 grafico_acumulado_tempo.update_layout(title="Desflorestamento por Tempo",
     xaxis={"title": "Data"},
     yaxis={"title": "Área (ha)"},
-    xaxis_tickformat='%m'
+    xaxis_tickformat='%m',
+    legend = { "title": "Ano",
+              "valign": "middle"
+    },
+
+    modebar = {
+        "remove": [
+            "zoom",
+            "pan",
+            "select",
+            "zoomIn",
+            "zoomOut",
+            "lasso2d",
+            "autoscale",
+        ]
+    },
+    separators = ".",
 )
 
 grafico_acumulado_tempo.update_xaxes(type='date')
