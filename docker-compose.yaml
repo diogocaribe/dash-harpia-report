@@ -10,3 +10,9 @@ services:
       - 8080:80
     volumes:
       - "$PWD:/workspace"
+    networks:
+      - network 
+    
+networks:
+  network:
+    driver: bridge
