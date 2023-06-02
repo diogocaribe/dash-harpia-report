@@ -11,6 +11,7 @@ import dash_leaflet as dl
 import dash_mantine_components as dmc
 import numpy as np
 import pandas as pd
+import plotly.express as px
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
 from data import df_decremento_municipio, gdf_monitramento_dissolve
@@ -57,28 +58,31 @@ template_graph = {
 
 ############################ Grafico de acumulação ############################
 # Grafico de acumulação do desmatamento ao longo do tempo
-dff_filter_acumulacao = df_decremento_municipio.query(
-    "@year_start <= index <= @year_end"
-)["area_ha"]
-dff_acumulacao = (
-    dff_filter_acumulacao.groupby([dff_filter_acumulacao.index]).sum().cumsum()
-)
-data_acumulacao = go.Scatter(
-    x=dff_acumulacao.index,
-    y=dff_acumulacao,
-    mode="lines",
-)
-layout = go.Layout(
-    title="Acumulado de Desflorestamento",
+df_decremento_municipio.index = pd.to_datetime(df_decremento_municipio.index)
+df_m = df_decremento_municipio[["area_ha"]].groupby(df_decremento_municipio.index).sum()
+
+df_empty = pd.DataFrame()
+
+for ano in df_m.index.year.unique()[
+    df_m.index.year.unique() > 2017
+]:  
+
+    df = df_m[df_m.index.year == ano]
+    df["year"] = df.index.year
+    df["timedelta"] = (df.index - (df.index.year.astype("str") + "-01-01").astype("datetime64[ns]"))/1000000
+    df["cumsum"]= df["area_ha"].cumsum()
+
+    df_empty = pd.concat([df_empty, df[["year", "timedelta", "cumsum"]]])
+
+grafico_acumulado_tempo = px.line(df_empty, x="timedelta", y="cumsum", color='year')
+
+grafico_acumulado_tempo.update_layout(title="Desflorestamento por Tempo",
     xaxis={"title": "Data"},
-    yaxis={"title": "Área (ha)", "hoverformat": ".2f"},
+    yaxis={"title": "Área (ha)"},
+    xaxis_tickformat='%m'
 )
 
-grafico_acumulado_tempo = go.Figure(data=data_acumulacao, layout=layout)
-grafico_acumulado_tempo.update_layout(template=template_graph)
-grafico_acumulado_tempo.update_xaxes(range=[year_start, year_end])
-###############################################################################
-
+grafico_acumulado_tempo.update_xaxes(type='date')
 ###############################################################################
 ######################### Botões para seleção #################################
 ###############################################################################
