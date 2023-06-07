@@ -14,12 +14,15 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
-from data import df_decremento_municipio, gdf_monitramento_dissolve
+from dataset.data import df_decremento_municipio, gdf_monitramento_dissolve
+from flask import Flask
 
 # css para deixar o layout bonito
 external_stylesheets = [dbc.themes.BOOTSTRAP]
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = Flask(__name__)
+app = dash.Dash(server=server, external_stylesheets=external_stylesheets)
+app.title = 'HarpiaDashboard'
 
 header = html.Header(
     [html.H1("Monitoramento Vegetação"), html.H2("Harpia")],
@@ -291,4 +294,4 @@ def update_output_grafico_municipio(dados):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)

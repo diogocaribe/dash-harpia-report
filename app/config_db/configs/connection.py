@@ -8,7 +8,7 @@ config = dotenv_values(".env")
 
 class DBConnectionHandler:
     def __init__(self) -> None:
-        self.__connection_string = f'postgresql+psycopg2://{config["DB_USER"]}:{config["DB_PASSWORD"]}@{config["DB_IP"]}:{config["DB_PORT"]}/{config["DB_NAME"]}'
+        self.__connection_string = f'postgresql+psycopg2://postgres:postgres@172.16.5.18:5432/harpia_dev'
         self.__engine = self.__create_database_engine()
         self.session = None
 
