@@ -23,12 +23,18 @@ FROM (
 
 **Declarar as variáveis do ambiente**
 
-* Editar o arquivo .env.dist removendo a extensão .dist
-* Declarar as variáveis de ambiente
+* Editar os arquivos .env.dist removendo a extensão .dist
+* Comfigure o workdir/.env (variavel utilizada pelo docker-compose) 
 
 <h4 align="lefght">
 
 	COMPOSE_PROJECT_NAME=harpia
+
+</h4> 
+
+* Declarar as variáveis de ambiente
+
+<h4 align="lefght">
 
 	# Parametros de conexão do banco de dados
 	DB_USER='user_name' 
