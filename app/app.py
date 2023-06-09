@@ -11,11 +11,12 @@ import dash_leaflet as dl
 import dash_mantine_components as dmc
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 from dash import Input, Output, dcc, html
 from dataset.data import df_decremento_municipio, gdf_monitramento_dissolve
 from flask import Flask
+# from _components import grafico_acumulacao_ano
+from plotly.colors import n_colors
 
 # css para deixar o layout bonito
 external_stylesheets = [dbc.themes.BOOTSTRAP]
@@ -28,8 +29,6 @@ header = html.Header(
     [html.H1("Monitoramento Vegetação"), html.H2("Harpia")],
     className="header bg-primary text-white text-center p-0 m-0",
 )
-
-# assinc_await
 
 # Datas iniciais e finais do dataframe
 max_date = df_decremento_municipio.index.max()
@@ -58,36 +57,66 @@ template_graph = {
     }
 }
 
+df_decremento_municipio.index = pd.to_datetime(df_decremento_municipio.index)
 
 ############################ Grafico de acumulação ############################
 # Grafico de acumulação do desmatamento ao longo do tempo
-df_decremento_municipio.index = pd.to_datetime(df_decremento_municipio.index)
-df_m = df_decremento_municipio[["area_ha"]].groupby(df_decremento_municipio.index).sum()
+df_decremento_municipio_ = (
+    df_decremento_municipio[["area_ha"]].groupby(df_decremento_municipio.index).sum()
+)
+lista_ano = df_decremento_municipio.index.year.unique()[
+    df_decremento_municipio.index.year.unique() > 2017
+]
 
 df_empty = pd.DataFrame()
+for ano in lista_ano:
+    df = df_decremento_municipio_.loc[df_decremento_municipio_.index.year == ano]
+    df["timedelta"] = (
+        df.index - (df.index.year.astype("str") + "-01-01").astype("datetime64[ns]")
+    ) / 1000000
+    df["cumsum"] = df.loc[:, "area_ha"].cumsum()
+    df_empty = pd.concat([df_empty, df[["timedelta", "cumsum"]]])
 
-for ano in df_m.index.year.unique()[
-    df_m.index.year.unique() > 2017
-]:  
+# Construindo os graficos dos anos passados da série histórica
+grafico_acumulado_tempo = go.Figure()
 
-    df = df_m[df_m.index.year == ano]
-    df["year"] = df.index.year
-    df["timedelta"] = (df.index - (df.index.year.astype("str") + "-01-01").astype("datetime64[ns]"))/1000000
-    df["cumsum"]= df["area_ha"].cumsum()
+greys_custom = n_colors(
+    "rgb(220, 220, 220)", "rgb(160, 160, 160)", len(lista_ano) + 1, colortype="rgb"
+)
 
-    df_empty = pd.concat([df_empty, df[["year", "timedelta", "cumsum"]]])
+for year, color in zip(lista_ano[:-1], greys_custom):
+    x_ = df_empty.loc[df_empty.index.year == year, "timedelta"]
+    y_ = df_empty.loc[df_empty.index.year == year, "cumsum"]
+    data = go.Scatter(
+        x=x_,
+        y=y_,
+        mode="lines",
+        name=year,
+        legendgrouptitle={"text": "Ano"},
+        marker={"color": color},
+        opacity=0.7,
+    )
 
-grafico_acumulado_tempo = px.line(df_empty, x="timedelta", y="cumsum", color='year')
+    grafico_acumulado_tempo.add_trace(data)
 
-grafico_acumulado_tempo.update_layout(title="Desflorestamento por Tempo",
-    xaxis={"title": "Data"},
+x_ = df_empty.loc[df_empty.index.year == lista_ano[-1], "timedelta"]
+y_ = df_empty.loc[df_empty.index.year == lista_ano[-1], "cumsum"]
+
+data = go.Scatter(
+    x=x_,
+    y=y_,
+    mode="lines",
+    name=ano,
+)
+
+grafico_acumulado_tempo.add_trace(data)
+
+grafico_acumulado_tempo.update_layout(
+    title="Acumulado Desflorestamento por Tempo",
+    xaxis={"title": "Data", "type": "date"},
     yaxis={"title": "Área (ha)"},
-    xaxis_tickformat='%m',
-    legend = { "title": "Ano",
-              "valign": "middle"
-    },
-
-    modebar = {
+    xaxis_tickformat="%d-%m",
+    modebar={
         "remove": [
             "zoom",
             "pan",
@@ -98,10 +127,9 @@ grafico_acumulado_tempo.update_layout(title="Desflorestamento por Tempo",
             "autoscale",
         ]
     },
-    separators = ".",
+    separators=".",
+    showlegend=True,
 )
-
-grafico_acumulado_tempo.update_xaxes(type='date')
 ###############################################################################
 ######################### Botões para seleção #################################
 ###############################################################################
