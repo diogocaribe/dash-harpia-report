@@ -7,9 +7,7 @@ services:
     hostname: ${COMPOSE_PROJECT_NAME}_dashboard
     restart: always
     ports:
-      - 8080:80
-    volumes:
-      - "$PWD:/workspace"
+      - 5000:80
     networks:
       - network 
     
