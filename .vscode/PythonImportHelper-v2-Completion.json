@@ -477,7 +477,7 @@
         "kind": 5,
         "importPath": "app.components.graph",
         "description": "app.components.graph",
-        "peekOfCode": "fig = go.Figure()\nfig.update_layout(template=\"plotly\", paper_bgcolor=\"rgba(0,0,0,0)\")\ngraphs = dbc.Row([\n    dcc.Graph(id=\"graph\", figure=fig,\n               style={\"overflow-y\": \"scroll\", \"height\": \"93vh\"})\n])",
+        "peekOfCode": "fig = go.Figure(\n    data=[go.Bar(x=[1, 2, 3], y=[1, 3, 2])],\n    layout=go.Layout(\n        title=go.layout.Title(text=\"A Figure Specified By A Graph Object\")\n    )\n)\ngraphs = dbc.Row([\n    dcc.Graph(id=\"graph\", figure=fig,\n            style={\"overflow-y\": \"scroll\", \"height\": \"93vh\"})\n])",
         "detail": "app.components.graph",
         "documentation": {}
     },
@@ -486,7 +486,7 @@
         "kind": 5,
         "importPath": "app.components.graph",
         "description": "app.components.graph",
-        "peekOfCode": "graphs = dbc.Row([\n    dcc.Graph(id=\"graph\", figure=fig,\n               style={\"overflow-y\": \"scroll\", \"height\": \"93vh\"})\n])",
+        "peekOfCode": "graphs = dbc.Row([\n    dcc.Graph(id=\"graph\", figure=fig,\n            style={\"overflow-y\": \"scroll\", \"height\": \"93vh\"})\n])",
         "detail": "app.components.graph",
         "documentation": {}
     },
@@ -765,7 +765,7 @@
         "kind": 5,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "app.layout = dbc.Container(\n    [\n        dbc.Row([header.header]),\n        dbc.Row(\n            [\n                dbc.Col([map_.map_],\n                        width=7\n                ),\n                dbc.Col([graph.fig],\n                        width=5,",
+        "peekOfCode": "app.layout = dbc.Container(\n    [\n        dbc.Row([header.header]),\n        dbc.Row(\n            [\n                dbc.Col([map_.map_],\n                        width=7\n                ),\n                dbc.Col([graph.graphs],\n                        width=5,",
         "detail": "app.index",
         "documentation": {}
     },

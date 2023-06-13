@@ -1,7 +1,4 @@
 """Dashboard Harpia"""
-
-# coding: utf-8
-
 import dash
 import dash_bootstrap_components as dbc
 from components import footer, graph, header, map_
@@ -17,7 +14,7 @@ app.layout = dbc.Container(
                 dbc.Col([map_.map_],
                         width=7
                 ),
-                dbc.Col([graph.fig],
+                dbc.Col([graph.graphs],
                         width=5,
                 )
             ]
@@ -26,7 +23,7 @@ app.layout = dbc.Container(
         # dcc.Store(id="monitoramento-municipio"),
     ],
     class_name="overflow-hidden",
-    fluid=True,
+    fluid=True
 )
 
 
