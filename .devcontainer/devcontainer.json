@@ -48,7 +48,8 @@
 				"ms-vscode.live-server",
 				"ms-python.pylint",
 				"virgilsisoe.python-auto-import",
-				"mgesbert.python-path"
+				"mgesbert.python-path",
+				"oderwat.indent-rainbow"
 			]
 		}
 	}
