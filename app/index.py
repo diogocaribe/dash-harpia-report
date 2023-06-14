@@ -11,11 +11,13 @@ app.layout = dbc.Container(
         dbc.Row([header.header]),
         dbc.Row(
             [
-                dbc.Col([map_.map_],
-                        width=7
+                dbc.Col(
+                    [map_.map_],
+                    width=7
                 ),
-                dbc.Col([graph.graphs],
-                        width=5,
+                dbc.Col(
+                    [graph.graphs],
+                    width=5,
                 )
             ]
         ),

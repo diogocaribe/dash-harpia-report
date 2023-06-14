@@ -10,6 +10,6 @@ fig = go.Figure(
 )
 
 graphs = dbc.Row([
-    dcc.Graph(id="graph", figure=fig,
+    dcc.Graph(id="graphs-column", figure=fig,
             style={"overflow-y": "scroll", "height": "93vh"})
 ])
