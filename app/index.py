@@ -1,10 +1,10 @@
 """Dashboard Harpia"""
-import dash
 import dash_bootstrap_components as dbc
 from components import footer, graph, header, map_
-from flask import Flask
 
 from app import app
+
+server = app.server
 
 app.layout = dbc.Container(
     [
