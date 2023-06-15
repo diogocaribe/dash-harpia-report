@@ -18,6 +18,7 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [graph.graphs],
                     width=5,
+                    style={"overflow-y": "scroll", "height": "95vh"}
                 )
             ]
         ),
