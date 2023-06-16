@@ -1,8 +1,9 @@
 """Dashboard Harpia"""
 import dash_bootstrap_components as dbc
-from components import footer, graph, header, map_
 
 from app import app
+
+from .components import footer, graph, header, map_
 
 server = app.server
 
