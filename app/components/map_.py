@@ -1,3 +1,4 @@
+"""Map component"""
 import dash_bootstrap_components as dbc
 import dash_leaflet as dl
 
