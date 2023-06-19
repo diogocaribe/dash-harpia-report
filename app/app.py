@@ -23,7 +23,35 @@ external_stylesheets = [dbc.themes.BOOTSTRAP]
 server = Flask(__name__)
 app = dash.Dash(server=server, external_stylesheets=external_stylesheets)
 app.title = 'HarpiaDashboard'
+"""Dashboard Harpia"""
 
+# coding: utf-8
+
+import json
+from datetime import date, datetime
+
+import dash
+import dash_bootstrap_components as dbc
+import dash_leaflet as dl
+import dash_mantine_components as dmc
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import Input, Output, dcc, html
+from dataset.data import df_decremento_municipio, gdf_monitramento_dissolve
+from flask import Flask
+
+# css para deixar o layout bonito
+external_stylesheets = [dbc.themes.BOOTSTRAP]
+
+server = Flask(__name__)
+app = dash.Dash(server=server, external_stylesheets=external_stylesheets)
+app.title = 'HarpiaDashboard'
+
+server = Flask(__name__)
+app = dash.Dash(server=server, external_stylesheets=external_stylesheets)
+app.title = 'HarpiaDashboard'
 header = html.Header(
     [html.H1("Monitoramento Vegetação"), html.H2("Harpia")],
     className="header bg-primary text-white text-center p-0 m-0",
