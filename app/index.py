@@ -14,8 +14,8 @@ app.layout = dbc.Container(
     [
         dcc.Store(id="monitoramento-municipio"),
         dcc.Store(id="monitoramento-dissolve"),
-        dbc.Row([header.header]),
-        dbc.Row(
+        dbc.Row([header.header]), #5vh
+        dbc.Row( #92vh
             [
                 dbc.Col(
                     [map_.map_],
@@ -24,11 +24,11 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [graph.graphs],
                     width=5,
-                    style={"overflow-y": "scroll", "height": "95vh"}
+                    style={"overflow-y": "scroll", "height": "92vh"}
                 )
             ]
         ),
-        dbc.Row([footer.footer]),
+        dbc.Row([footer.footer]), #92vh
     ],
     class_name="overflow-hidden",
     fluid=True
