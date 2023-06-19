@@ -10,7 +10,7 @@ from config_db.repository.monitoramento_dissolve_repository import \
 monitoramentodissolverepo = MonitoramentoDissolveRepository()
 
 # Solicitando os dados do monitoramento_dissolve como geopandas
-gdf_monitramento_dissolve = monitoramentodissolverepo.gdf_select_all()
+gdf_monitoramento_dissolve = monitoramentodissolverepo.gdf_select_all()
 
 # Decremento Município
 df_decremento_municipio = DecrementoMunicipioRepository().df_select_all()
