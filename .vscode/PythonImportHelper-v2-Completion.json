@@ -1,5 +1,62 @@
 [
     {
+        "label": "dash_mantine_components",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dash_mantine_components",
+        "description": "dash_mantine_components",
+        "detail": "dash_mantine_components",
+        "documentation": {}
+    },
+    {
+        "label": "max_date",
+        "importPath": "dataset.data",
+        "description": "dataset.data",
+        "isExtraImport": true,
+        "detail": "dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "min_date",
+        "importPath": "dataset.data",
+        "description": "dataset.data",
+        "isExtraImport": true,
+        "detail": "dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "year_start",
+        "importPath": "dataset.data",
+        "description": "dataset.data",
+        "isExtraImport": true,
+        "detail": "dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "df_decremento_municipio",
+        "importPath": "dataset.data",
+        "description": "dataset.data",
+        "isExtraImport": true,
+        "detail": "dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "df_decremento_municipio",
+        "importPath": "dataset.data",
+        "description": "dataset.data",
+        "isExtraImport": true,
+        "detail": "dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "gdf_monitoramento_dissolve",
+        "importPath": "dataset.data",
+        "description": "dataset.data",
+        "isExtraImport": true,
+        "detail": "dataset.data",
+        "documentation": {}
+    },
+    {
         "label": "dash",
         "kind": 6,
         "isExtraImport": true,
@@ -25,7 +82,111 @@
         "documentation": {}
     },
     {
+        "label": "dcc",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
         "label": "html",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "Input",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "Output",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "callback",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "html",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "Input",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "Output",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "callback",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "dcc",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "html",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "dcc",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "Input",
+        "importPath": "dash",
+        "description": "dash",
+        "isExtraImport": true,
+        "detail": "dash",
+        "documentation": {}
+    },
+    {
+        "label": "Output",
         "importPath": "dash",
         "description": "dash",
         "isExtraImport": true,
@@ -51,27 +212,12 @@
         "documentation": {}
     },
     {
-        "label": "n_colors",
-        "importPath": "plotly.colors",
-        "description": "plotly.colors",
+        "label": "numpy",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "plotly.colors",
-        "documentation": {}
-    },
-    {
-        "label": "n_colors",
-        "importPath": "plotly.colors",
-        "description": "plotly.colors",
-        "isExtraImport": true,
-        "detail": "plotly.colors",
-        "documentation": {}
-    },
-    {
-        "label": "df_decremento_municipio",
-        "importPath": "app.dataset.data",
-        "description": "app.dataset.data",
-        "isExtraImport": true,
-        "detail": "app.dataset.data",
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
         "documentation": {}
     },
     {
@@ -90,6 +236,15 @@
         "importPath": "dash_leaflet",
         "description": "dash_leaflet",
         "detail": "dash_leaflet",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -294,6 +449,30 @@
         "documentation": {}
     },
     {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "\\",
         "importPath": "config_db.repository.decremento_municipio_repository",
         "description": "config_db.repository.decremento_municipio_repository",
@@ -310,11 +489,11 @@
         "documentation": {}
     },
     {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "n_colors",
+        "importPath": "plotly.colors",
+        "description": "plotly.colors",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "plotly.colors",
         "documentation": {}
     },
     {
@@ -331,6 +510,14 @@
         "description": "flask",
         "isExtraImport": true,
         "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
         "documentation": {}
     },
     {
@@ -366,14 +553,6 @@
         "documentation": {}
     },
     {
-        "label": "app",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
         "label": "unittest",
         "kind": 6,
         "isExtraImport": true,
@@ -383,101 +562,128 @@
         "documentation": {}
     },
     {
+        "label": "date_range_picker",
+        "kind": 5,
+        "importPath": "app.components.controller",
+        "description": "app.components.controller",
+        "peekOfCode": "date_range_picker = dmc.DateRangePicker(\n    id=\"date-picker-range\",\n    label=\"Intervalo de data\",\n    description=\"Selecione o intervalo temporal para análise\",\n    minDate=min_date,\n    maxDate=max_date,\n    value=[year_start, max_date],\n    inputFormat=\"DD/MM/YYYY\",\n)",
+        "detail": "app.components.controller",
+        "documentation": {}
+    },
+    {
         "label": "footer",
         "kind": 5,
         "importPath": "app.components.footer",
         "description": "app.components.footer",
-        "peekOfCode": "footer = html.Footer([],\n    className=\"bg-primary\",\n    style={\"height\": \"3vh\"}\n)",
+        "peekOfCode": "footer = html.Footer([],\n    className=\"bg-primary\",\n    id=\"footer\",\n    style={\"height\": \"3vh\"}\n)",
         "detail": "app.components.footer",
         "documentation": {}
     },
     {
         "label": "df_decremento_municipio.index",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
         "peekOfCode": "df_decremento_municipio.index = pd.to_datetime(df_decremento_municipio.index)\ndf_decremento_municipio = (\n    df_decremento_municipio[[\"area_ha\"]].groupby(df_decremento_municipio.index).sum()\n)\nlista_ano = df_decremento_municipio.index.year.unique()[\n    df_decremento_municipio.index.year.unique() > 2017\n]\ndf_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
         "label": "df_decremento_municipio",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
         "peekOfCode": "df_decremento_municipio = (\n    df_decremento_municipio[[\"area_ha\"]].groupby(df_decremento_municipio.index).sum()\n)\nlista_ano = df_decremento_municipio.index.year.unique()[\n    df_decremento_municipio.index.year.unique() > 2017\n]\ndf_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]\n    df[\"timedelta\"] = (",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
         "label": "lista_ano",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
         "peekOfCode": "lista_ano = df_decremento_municipio.index.year.unique()[\n    df_decremento_municipio.index.year.unique() > 2017\n]\ndf_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]\n    df[\"timedelta\"] = (\n        df.index - (df.index.year.astype(\"str\") + \"-01-01\").astype(\"datetime64[ns]\")\n    ) / 1000000\n    df[\"cumsum\"] = df.loc[:, \"area_ha\"].cumsum()",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
         "label": "df_empty",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
         "peekOfCode": "df_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]\n    df[\"timedelta\"] = (\n        df.index - (df.index.year.astype(\"str\") + \"-01-01\").astype(\"datetime64[ns]\")\n    ) / 1000000\n    df[\"cumsum\"] = df.loc[:, \"area_ha\"].cumsum()\n    df_empty = pd.concat([df_empty, df[[\"timedelta\", \"cumsum\"]]])\n# Construindo os graficos dos anos passados da série histórica\ngrafico_acumulado_tempo = go.Figure()",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
         "label": "grafico_acumulado_tempo",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
-        "peekOfCode": "grafico_acumulado_tempo = go.Figure()\ngreys_custom = n_colors(\n    \"rgb(220, 220, 220)\", \"rgb(160, 160, 160)\", len(lista_ano) + 1, colortype=\"rgb\"\n)\nfor year, color in zip(lista_ano[:-1], greys_custom):\n    x_ = df_empty.loc[df_empty.index.year == year, \"timedelta\"]\n    y_ = df_empty.loc[df_empty.index.year == year, \"cumsum\"]\n    data = go.Scatter(\n        x=x_,\n        y=y_,",
-        "detail": "app.components.grafico_acumulacao_ano",
-        "documentation": {}
-    },
-    {
-        "label": "greys_custom",
-        "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
-        "peekOfCode": "greys_custom = n_colors(\n    \"rgb(220, 220, 220)\", \"rgb(160, 160, 160)\", len(lista_ano) + 1, colortype=\"rgb\"\n)\nfor year, color in zip(lista_ano[:-1], greys_custom):\n    x_ = df_empty.loc[df_empty.index.year == year, \"timedelta\"]\n    y_ = df_empty.loc[df_empty.index.year == year, \"cumsum\"]\n    data = go.Scatter(\n        x=x_,\n        y=y_,\n        mode=\"lines\",",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
+        "peekOfCode": "grafico_acumulado_tempo = go.Figure()\nfor year in lista_ano[:-1]:\n    x_ = df_empty.loc[df_empty.index.year == year, \"timedelta\"]\n    y_ = df_empty.loc[df_empty.index.year == year, \"cumsum\"]\n    data = go.Scatter(\n        x=x_,\n        y=y_,\n        mode=\"lines\",\n        name=year,\n        legendgrouptitle={\"text\": \"Ano\"},",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
         "label": "x_",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
-        "peekOfCode": "x_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"timedelta\"]\ny_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"cumsum\"]\ndata = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)\ngrafico_acumulado_tempo.update_layout(",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
+        "peekOfCode": "x_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"timedelta\"]\ny_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"cumsum\"]\ndata = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    marker={\"color\": \"red\"},\n    line={\"width\" : 3.5},\n    name=ano,\n)",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
         "label": "y_",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
-        "peekOfCode": "y_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"cumsum\"]\ndata = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)\ngrafico_acumulado_tempo.update_layout(\n    title=\"Acumulado Desflorestamento por Tempo\",",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
+        "peekOfCode": "y_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"cumsum\"]\ndata = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    marker={\"color\": \"red\"},\n    line={\"width\" : 3.5},\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
         "label": "data",
         "kind": 5,
-        "importPath": "app.components.grafico_acumulacao_ano",
-        "description": "app.components.grafico_acumulacao_ano",
-        "peekOfCode": "data = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)\ngrafico_acumulado_tempo.update_layout(\n    title=\"Acumulado Desflorestamento por Tempo\",\n    xaxis={\"title\": \"Data\", \"type\": \"date\"},",
-        "detail": "app.components.grafico_acumulacao_ano",
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
+        "peekOfCode": "data = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    marker={\"color\": \"red\"},\n    line={\"width\" : 3.5},\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)\ngrafico_acumulado_tempo.update_layout(",
+        "detail": "app.components.grafico_acumulado_ano",
         "documentation": {}
     },
     {
-        "label": "fig",
+        "label": "fig_acumulado_ano",
+        "kind": 5,
+        "importPath": "app.components.grafico_acumulado_ano",
+        "description": "app.components.grafico_acumulado_ano",
+        "peekOfCode": "fig_acumulado_ano = dcc.Graph(id=\"fig-acumulado\", figure=grafico_acumulado_tempo,\n                        config={\"displaylogo\": False, \"scrollZoom\": False}\n                    )",
+        "detail": "app.components.grafico_acumulado_ano",
+        "documentation": {}
+    },
+    {
+        "label": "update_output_grafico_dia",
+        "kind": 2,
+        "importPath": "app.components.graph",
+        "description": "app.components.graph",
+        "peekOfCode": "def update_output_grafico_dia(dados):\n    \"\"\"\n    Grafico de atualização de dados do dia\n    \"\"\"\n    dff = pd.read_json(dados, orient=\"split\")\n    data_day = go.Bar(\n        x=dff.index,\n        y=dff[\"area_ha\"],\n        customdata=np.stack(dff[\"nome\"], axis=-1),\n    )",
+        "detail": "app.components.graph",
+        "documentation": {}
+    },
+    {
+        "label": "update_output_grafico_municipio",
+        "kind": 2,
+        "importPath": "app.components.graph",
+        "description": "app.components.graph",
+        "peekOfCode": "def update_output_grafico_municipio(dados):\n    \"\"\"\n        Função para atualização do grafico de estatística por município.\n    \"\"\"\n    dff = pd.read_json(dados, orient=\"split\")\n    dff_municipio = dff.groupby([\"nome\"]).sum()\n    data_municipio = go.Bar(\n        x=dff_municipio.area_ha,\n        y=dff_municipio.index,\n        orientation=\"h\",",
+        "detail": "app.components.graph",
+        "documentation": {}
+    },
+    {
+        "label": "template_graph",
         "kind": 5,
         "importPath": "app.components.graph",
         "description": "app.components.graph",
-        "peekOfCode": "fig = go.Figure(\n    data=[go.Bar(x=[1, 2, 3], y=[1, 3, 2])],\n    layout=go.Layout(\n        title=go.layout.Title(text=\"A Figure Specified By A Graph Object\")\n    )\n)\ngraphs = dbc.Row([\n    dcc.Graph(id=\"graph\", figure=fig,\n            style={\"overflow-y\": \"scroll\", \"height\": \"93vh\"})\n])",
+        "peekOfCode": "template_graph = {\n    \"layout\": {\n        \"modebar\": {\n            \"remove\": [\n                \"zoom\",\n                \"pan\",\n                \"select\",\n                \"zoomIn\",\n                \"zoomOut\",\n                \"lasso2d\",",
         "detail": "app.components.graph",
         "documentation": {}
     },
@@ -486,7 +692,7 @@
         "kind": 5,
         "importPath": "app.components.graph",
         "description": "app.components.graph",
-        "peekOfCode": "graphs = dbc.Row([\n    dcc.Graph(id=\"graph\", figure=fig,\n            style={\"overflow-y\": \"scroll\", \"height\": \"93vh\"})\n])",
+        "peekOfCode": "graphs = html.Div(\n    [\n        html.Div(\n            fig_acumulado_ano\n            # , style={\"height\": \"300px\"}\n        ),\n        html.Div(\n            children=[\n                date_range_picker,\n                dcc.Graph(",
         "detail": "app.components.graph",
         "documentation": {}
     },
@@ -495,16 +701,16 @@
         "kind": 5,
         "importPath": "app.components.header",
         "description": "app.components.header",
-        "peekOfCode": "header = html.Header(\n            [html.H3(\"Monitoramento Vegetação\"),\n            html.H5(\"Harpia\")],\n            className=\"bg-primary d-flex justify-content-between align-items-center\",\n            style={\"height\": \"4vh\"},\n        )",
+        "peekOfCode": "header = html.Header(\n            [html.H4(\"Monitoramento Vegetação\"),\n            html.H5(\"Harpia\")],\n            className=\"\"\"bg-primary\n                    text-light font-size-adjust \n                    d-flex justify-content-between align-items-center\"\"\",\n            style={\"height\": \"5vh\"},\n        )",
         "detail": "app.components.header",
         "documentation": {}
     },
     {
-        "label": "map_",
-        "kind": 5,
+        "label": "update_output_mapa",
+        "kind": 2,
         "importPath": "app.components.map_",
         "description": "app.components.map_",
-        "peekOfCode": "map_ = dl.Map([dl.TileLayer()],\n            preferCanvas=True,\n            maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],\n            style={\"height\": \"93vh\"}\n        )\nmap_ = dbc.Row([\n    map_\n])",
+        "peekOfCode": "def update_output_mapa(gdf):\n    \"\"\"\n    Função para atualização dos dados do mapa.\n    \"\"\"\n    map_geojson = dl.GeoJSON(\n        data=json.loads(gdf),\n        zoomToBounds=True,\n        zoomToBoundsOnClick=True,\n        options={\"style\":{\"color\":\"red\"}},\n    )",
         "detail": "app.components.map_",
         "documentation": {}
     },
@@ -513,7 +719,16 @@
         "kind": 5,
         "importPath": "app.components.map_",
         "description": "app.components.map_",
-        "peekOfCode": "map_ = dbc.Row([\n    map_\n])",
+        "peekOfCode": "map_ = dl.Map([dl.TileLayer(), dl.GeoJSON(id=\"geojson-mapa\")],\n            preferCanvas=True,\n            maxBounds=[[-8.5272, -46.6294], [-18.3484, -37.3338]],\n            id=\"leaflet-map\",\n            style={\"height\": \"92vh\"}\n        )\nmap_ = dbc.Row([\n    map_\n])\n# Callback mapa",
+        "detail": "app.components.map_",
+        "documentation": {}
+    },
+    {
+        "label": "map_",
+        "kind": 5,
+        "importPath": "app.components.map_",
+        "description": "app.components.map_",
+        "peekOfCode": "map_ = dbc.Row([\n    map_\n])\n# Callback mapa\n@callback(\n    Output(\"geojson-mapa\", \"children\"),\n    Input(\"monitoramento-dissolve\", \"data\"),\n)\ndef update_output_mapa(gdf):\n    \"\"\"",
         "detail": "app.components.map_",
         "documentation": {}
     },
@@ -585,16 +800,16 @@
         "kind": 5,
         "importPath": "app.dataset.data",
         "description": "app.dataset.data",
-        "peekOfCode": "monitoramentodissolverepo = MonitoramentoDissolveRepository()\n# Solicitando os dados do monitoramento_dissolve como geopandas\ngdf_monitramento_dissolve = monitoramentodissolverepo.gdf_select_all()\n# Decremento Município\ndf_decremento_municipio = DecrementoMunicipioRepository().df_select_all()\ndf_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "peekOfCode": "monitoramentodissolverepo = MonitoramentoDissolveRepository()\n# Solicitando os dados do monitoramento_dissolve como geopandas\ngdf_monitoramento_dissolve = monitoramentodissolverepo.gdf_select_all()\n# Decremento Município\ndf_decremento_municipio = DecrementoMunicipioRepository().df_select_all()\ndf_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente",
         "detail": "app.dataset.data",
         "documentation": {}
     },
     {
-        "label": "gdf_monitramento_dissolve",
+        "label": "gdf_monitoramento_dissolve",
         "kind": 5,
         "importPath": "app.dataset.data",
         "description": "app.dataset.data",
-        "peekOfCode": "gdf_monitramento_dissolve = monitoramentodissolverepo.gdf_select_all()\n# Decremento Município\ndf_decremento_municipio = DecrementoMunicipioRepository().df_select_all()\ndf_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "peekOfCode": "gdf_monitoramento_dissolve = monitoramentodissolverepo.gdf_select_all()\n# Decremento Município\ndf_decremento_municipio = DecrementoMunicipioRepository().df_select_all()\ndf_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente\ncurrent_year = date.today().year\nyear_start = date(current_year, 1, 1)",
         "detail": "app.dataset.data",
         "documentation": {}
     },
@@ -603,7 +818,7 @@
         "kind": 5,
         "importPath": "app.dataset.data",
         "description": "app.dataset.data",
-        "peekOfCode": "df_decremento_municipio = DecrementoMunicipioRepository().df_select_all()\ndf_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "peekOfCode": "df_decremento_municipio = DecrementoMunicipioRepository().df_select_all()\ndf_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente\ncurrent_year = date.today().year\nyear_start = date(current_year, 1, 1)\nyear_end = date(current_year, 12, 31)\n# Calculando os valores de área decrementada por dia",
         "detail": "app.dataset.data",
         "documentation": {}
     },
@@ -612,7 +827,52 @@
         "kind": 5,
         "importPath": "app.dataset.data",
         "description": "app.dataset.data",
-        "peekOfCode": "df_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "peekOfCode": "df_decremento_municipio['nome'] = df_decremento_municipio['nome'].astype('string')\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente\ncurrent_year = date.today().year\nyear_start = date(current_year, 1, 1)\nyear_end = date(current_year, 12, 31)\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\",
+        "detail": "app.dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "max_date",
+        "kind": 5,
+        "importPath": "app.dataset.data",
+        "description": "app.dataset.data",
+        "peekOfCode": "max_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente\ncurrent_year = date.today().year\nyear_start = date(current_year, 1, 1)\nyear_end = date(current_year, 12, 31)\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "detail": "app.dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "min_date",
+        "kind": 5,
+        "importPath": "app.dataset.data",
+        "description": "app.dataset.data",
+        "peekOfCode": "min_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente\ncurrent_year = date.today().year\nyear_start = date(current_year, 1, 1)\nyear_end = date(current_year, 12, 31)\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "detail": "app.dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "current_year",
+        "kind": 5,
+        "importPath": "app.dataset.data",
+        "description": "app.dataset.data",
+        "peekOfCode": "current_year = date.today().year\nyear_start = date(current_year, 1, 1)\nyear_end = date(current_year, 12, 31)\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "detail": "app.dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "year_start",
+        "kind": 5,
+        "importPath": "app.dataset.data",
+        "description": "app.dataset.data",
+        "peekOfCode": "year_start = date(current_year, 1, 1)\nyear_end = date(current_year, 12, 31)\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
+        "detail": "app.dataset.data",
+        "documentation": {}
+    },
+    {
+        "label": "year_end",
+        "kind": 5,
+        "importPath": "app.dataset.data",
+        "description": "app.dataset.data",
+        "peekOfCode": "year_end = date(current_year, 12, 31)\n# Calculando os valores de área decrementada por dia\n# df_monitoramento_por_dia = df_decremento_municipio.loc[:,['area_ha']] \\\n#     .groupby(by='view_date').sum()",
         "detail": "app.dataset.data",
         "documentation": {}
     },
@@ -729,6 +989,42 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
+        "peekOfCode": "external_stylesheets = [dbc.themes.BOOTSTRAP]\nserver = Flask(__name__)\napp = dash.Dash(server=server, external_stylesheets=external_stylesheets)\napp.title = 'HarpiaDashboard'\n\"\"\"Dashboard Harpia\"\"\"\n# coding: utf-8\nimport dash\nimport dash_bootstrap_components as dbc\nfrom flask import Flask\n# css para deixar o layout bonito",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "server",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "server = Flask(__name__)\napp = dash.Dash(server=server, external_stylesheets=external_stylesheets)\napp.title = 'HarpiaDashboard'\n\"\"\"Dashboard Harpia\"\"\"\n# coding: utf-8\nimport dash\nimport dash_bootstrap_components as dbc\nfrom flask import Flask\n# css para deixar o layout bonito\nexternal_stylesheets = [dbc.themes.BOOTSTRAP]",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app = dash.Dash(server=server, external_stylesheets=external_stylesheets)\napp.title = 'HarpiaDashboard'\n\"\"\"Dashboard Harpia\"\"\"\n# coding: utf-8\nimport dash\nimport dash_bootstrap_components as dbc\nfrom flask import Flask\n# css para deixar o layout bonito\nexternal_stylesheets = [dbc.themes.BOOTSTRAP]\nserver = Flask(__name__)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.title",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app.title = 'HarpiaDashboard'\n\"\"\"Dashboard Harpia\"\"\"\n# coding: utf-8\nimport dash\nimport dash_bootstrap_components as dbc\nfrom flask import Flask\n# css para deixar o layout bonito\nexternal_stylesheets = [dbc.themes.BOOTSTRAP]\nserver = Flask(__name__)\napp = dash.Dash(server=server, external_stylesheets=external_stylesheets)",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "external_stylesheets",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
         "peekOfCode": "external_stylesheets = [dbc.themes.BOOTSTRAP]\nserver = Flask(__name__)\napp = dash.Dash(server=server, external_stylesheets=external_stylesheets)\napp.title = 'HarpiaDashboard'",
         "detail": "app.app",
         "documentation": {}
@@ -761,11 +1057,38 @@
         "documentation": {}
     },
     {
+        "label": "filter_data_monitoramento_municipio",
+        "kind": 2,
+        "importPath": "app.index",
+        "description": "app.index",
+        "peekOfCode": "def filter_data_monitoramento_municipio(dates):\n    \"\"\"\n    Metodo que filtra os dados e retorna para os callbacks.\n    \"\"\"\n    start_date = dates[0]\n    end_date = dates[1]\n    date1 = datetime.strptime(start_date, \"%Y-%m-%d\").date()\n    date2 = datetime.strptime(end_date, \"%Y-%m-%d\").date()\n    dff = df_decremento_municipio.query(\"@date1 <= index <= @date2\")\n    return dff.to_json(date_format=\"iso\", orient=\"split\")",
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
+        "label": "filter_data_monitoramento_municipio",
+        "kind": 2,
+        "importPath": "app.index",
+        "description": "app.index",
+        "peekOfCode": "def filter_data_monitoramento_municipio(dates):\n    \"\"\"\n    Metodo que filtra os dados e retorna para os callbacks.\n    \"\"\"\n    start_date = dates[0]\n    end_date = dates[1]\n    date1 = datetime.strptime(start_date, \"%Y-%m-%d\").date()\n    date2 = datetime.strptime(end_date, \"%Y-%m-%d\").date()\n    dff = gdf_monitoramento_dissolve.query(\"@date1 <= index <= @date2\")\n    # dff['view_date'] = dff['view_date'].astype(str)",
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
+        "label": "server",
+        "kind": 5,
+        "importPath": "app.index",
+        "description": "app.index",
+        "peekOfCode": "server = app.server\napp.layout = dbc.Container(\n    [\n        dcc.Store(id=\"monitoramento-municipio\"),\n        dcc.Store(id=\"monitoramento-dissolve\"),\n        dbc.Row([header.header]), #5vh\n        dbc.Row( #92vh\n            [\n                dbc.Col(\n                    [map_.map_],",
+        "detail": "app.index",
+        "documentation": {}
+    },
+    {
         "label": "app.layout",
         "kind": 5,
         "importPath": "app.index",
         "description": "app.index",
-        "peekOfCode": "app.layout = dbc.Container(\n    [\n        dbc.Row([header.header]),\n        dbc.Row(\n            [\n                dbc.Col([map_.map_],\n                        width=7\n                ),\n                dbc.Col([graph.graphs],\n                        width=5,",
+        "peekOfCode": "app.layout = dbc.Container(\n    [\n        dcc.Store(id=\"monitoramento-municipio\"),\n        dcc.Store(id=\"monitoramento-dissolve\"),\n        dbc.Row([header.header]), #5vh\n        dbc.Row( #92vh\n            [\n                dbc.Col(\n                    [map_.map_],\n                    width=7",
         "detail": "app.index",
         "documentation": {}
     },
