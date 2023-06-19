@@ -1,15 +1,9 @@
-"""Compenente."""
+"""O que esta melhor bem feito"""
 import pandas as pd
 import plotly.graph_objects as go
-from plotly.colors import n_colors
-from app.dataset.data import df_decremento_municipio
+from dash import dcc
+from dataset.data import df_decremento_municipio
 
-
-# dcc.Graph(
-#         id="grafico-acumulado-tempo",
-#         figure=grafico_acumulado_tempo,
-#         config={"displaylogo": False, "scrollZoom": True},
-#                     )
 
 df_decremento_municipio.index = pd.to_datetime(df_decremento_municipio.index)
 
@@ -28,47 +22,46 @@ for ano in lista_ano:
         df.index - (df.index.year.astype("str") + "-01-01").astype("datetime64[ns]")
     ) / 1000000
     df["cumsum"] = df.loc[:, "area_ha"].cumsum()
+
     df_empty = pd.concat([df_empty, df[["timedelta", "cumsum"]]])
 
 # Construindo os graficos dos anos passados da série histórica
 grafico_acumulado_tempo = go.Figure()
 
-greys_custom = n_colors(
-    "rgb(220, 220, 220)", "rgb(160, 160, 160)", len(lista_ano) + 1, colortype="rgb"
-)
-
-for year, color in zip(lista_ano[:-1], greys_custom):
+for year in lista_ano[:-1]:
     x_ = df_empty.loc[df_empty.index.year == year, "timedelta"]
     y_ = df_empty.loc[df_empty.index.year == year, "cumsum"]
+
+    
     data = go.Scatter(
         x=x_,
         y=y_,
         mode="lines",
         name=year,
         legendgrouptitle={"text": "Ano"},
-        marker={"color": color},
-        opacity=0.7,
+        opacity=0.4,
     )
 
     grafico_acumulado_tempo.add_trace(data)
 
 x_ = df_empty.loc[df_empty.index.year == lista_ano[-1], "timedelta"]
 y_ = df_empty.loc[df_empty.index.year == lista_ano[-1], "cumsum"]
-
 data = go.Scatter(
     x=x_,
     y=y_,
     mode="lines",
+    marker={"color": "red"},
+    line={"width" : 3.5},
     name=ano,
 )
-
 grafico_acumulado_tempo.add_trace(data)
 
+
 grafico_acumulado_tempo.update_layout(
-    title="Acumulado Desflorestamento por Tempo",
+    title="<b>Evolução anual do desmatamento</b>",
     xaxis={"title": "Data", "type": "date"},
     yaxis={"title": "Área (ha)"},
-    xaxis_tickformat="%d-%m",
+    xaxis_tickformat="%d-%b",
     modebar={
         "remove": [
             "zoom",
@@ -84,4 +77,10 @@ grafico_acumulado_tempo.update_layout(
     showlegend=True,
 )
 
-grafico_acumulado_tempo.show(config={"displaylogo": False})
+grafico_acumulado_tempo.update_traces(
+        hovertemplate="""<br>Data: %{x}<br>Área (ha): %{y:.2f}<extra></extra>"""
+    )
+
+fig_acumulado_ano = dcc.Graph(id="fig-acumulado", figure=grafico_acumulado_tempo,
+                        config={"displaylogo": False, "scrollZoom": False}
+                    )

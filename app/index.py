@@ -24,7 +24,7 @@ app.layout = dbc.Container(
             ]
         ),
         dbc.Row([footer.footer]),
-        # dcc.Store(id="monitoramento-municipio"),
+        # store
     ],
     class_name="overflow-hidden",
     fluid=True
