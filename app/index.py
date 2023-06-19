@@ -64,17 +64,14 @@ def filter_data_monitoramento_municipio(dates):
     """
     Metodo que filtra os dados e retorna para os callbacks.
     """
-
     start_date = dates[0]
     end_date = dates[1]
 
     date1 = datetime.strptime(start_date, "%Y-%m-%d").date()
     date2 = datetime.strptime(end_date, "%Y-%m-%d").date()
     
-    # print(gdf_monitoramento_dissolve.index)    
-    
-    dff = gdf_monitoramento_dissolve.query("@date1 <= view_date <= @date2")
-    dff['view_date'] = dff['view_date'].astype(str)
+    dff = gdf_monitoramento_dissolve.query("@date1 <= index <= @date2")
+    # dff['view_date'] = dff['view_date'].astype(str)
 
     return dff.to_json()
 
