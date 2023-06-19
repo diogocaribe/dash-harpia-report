@@ -26,6 +26,14 @@
         "documentation": {}
     },
     {
+        "label": "n_colors",
+        "importPath": "plotly.colors",
+        "description": "plotly.colors",
+        "isExtraImport": true,
+        "detail": "plotly.colors",
+        "documentation": {}
+    },
+    {
         "label": "declarative_base",
         "importPath": "sqlalchemy.ext.declarative",
         "description": "sqlalchemy.ext.declarative",
@@ -283,46 +291,30 @@
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "dash_bootstrap_components",
+        "label": "numpy",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "dash_bootstrap_components",
-        "description": "dash_bootstrap_components",
-        "detail": "dash_bootstrap_components",
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
         "documentation": {}
     },
     {
-        "label": "dash_leaflet",
+        "label": "plotly.express",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "dash_leaflet",
-        "description": "dash_leaflet",
-        "detail": "dash_leaflet",
+        "importPath": "plotly.express",
+        "description": "plotly.express",
+        "detail": "plotly.express",
         "documentation": {}
     },
     {
-        "label": "dash_mantine_components",
+        "label": "json",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "dash_mantine_components",
-        "description": "dash_mantine_components",
-        "detail": "dash_mantine_components",
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -331,30 +323,6 @@
         "isExtraImport": true,
         "importPath": "dash",
         "description": "dash",
-        "detail": "dash",
-        "documentation": {}
-    },
-    {
-        "label": "Dash",
-        "importPath": "dash",
-        "description": "dash",
-        "isExtraImport": true,
-        "detail": "dash",
-        "documentation": {}
-    },
-    {
-        "label": "dcc",
-        "importPath": "dash",
-        "description": "dash",
-        "isExtraImport": true,
-        "detail": "dash",
-        "documentation": {}
-    },
-    {
-        "label": "html",
-        "importPath": "dash",
-        "description": "dash",
-        "isExtraImport": true,
         "detail": "dash",
         "documentation": {}
     },
@@ -391,30 +359,30 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
+        "label": "dash_bootstrap_components",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
+        "importPath": "dash_bootstrap_components",
+        "description": "dash_bootstrap_components",
+        "detail": "dash_bootstrap_components",
         "documentation": {}
     },
     {
-        "label": "plotly.express",
+        "label": "dash_leaflet",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "plotly.express",
-        "description": "plotly.express",
-        "detail": "plotly.express",
+        "importPath": "dash_leaflet",
+        "description": "dash_leaflet",
+        "detail": "dash_leaflet",
         "documentation": {}
     },
     {
-        "label": "json",
+        "label": "dash_mantine_components",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
+        "importPath": "dash_mantine_components",
+        "description": "dash_mantine_components",
+        "detail": "dash_mantine_components",
         "documentation": {}
     },
     {
@@ -434,28 +402,20 @@
         "documentation": {}
     },
     {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "unittest",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "unittest",
         "description": "unittest",
         "detail": "unittest",
-        "documentation": {}
-    },
-    {
-        "label": "PerformanceReport",
-        "importPath": "app.data",
-        "description": "app.data",
-        "isExtraImport": true,
-        "detail": "app.data",
-        "documentation": {}
-    },
-    {
-        "label": "DataTradeFromProfitCsv",
-        "importPath": "app.data",
-        "description": "app.data",
-        "isExtraImport": true,
-        "detail": "app.data",
         "documentation": {}
     },
     {
@@ -648,33 +608,6 @@
         "documentation": {}
     },
     {
-        "label": "external_stylesheets",
-        "kind": 5,
-        "importPath": "app.graficos_dev.app_layout",
-        "description": "app.graficos_dev.app_layout",
-        "peekOfCode": "external_stylesheets = [dbc.themes.BOOTSTRAP]\napp = Dash(__name__, external_stylesheets=external_stylesheets)\napp.layout = dbc.Container(\n    [\n        # with é utilizado para definir o tamanho da row horizontalmente\n        # Por default (\"auto\") ela ocupará toda a linha\n        dbc.Row(\n            [\n                dbc.Col(\n                    [html.P(\"Monitoramento Vegetação\"), html.P(\"Harpia\")],",
-        "detail": "app.graficos_dev.app_layout",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "app.graficos_dev.app_layout",
-        "description": "app.graficos_dev.app_layout",
-        "peekOfCode": "app = Dash(__name__, external_stylesheets=external_stylesheets)\napp.layout = dbc.Container(\n    [\n        # with é utilizado para definir o tamanho da row horizontalmente\n        # Por default (\"auto\") ela ocupará toda a linha\n        dbc.Row(\n            [\n                dbc.Col(\n                    [html.P(\"Monitoramento Vegetação\"), html.P(\"Harpia\")],\n                    width=12,",
-        "detail": "app.graficos_dev.app_layout",
-        "documentation": {}
-    },
-    {
-        "label": "app.layout",
-        "kind": 5,
-        "importPath": "app.graficos_dev.app_layout",
-        "description": "app.graficos_dev.app_layout",
-        "peekOfCode": "app.layout = dbc.Container(\n    [\n        # with é utilizado para definir o tamanho da row horizontalmente\n        # Por default (\"auto\") ela ocupará toda a linha\n        dbc.Row(\n            [\n                dbc.Col(\n                    [html.P(\"Monitoramento Vegetação\"), html.P(\"Harpia\")],\n                    width=12,\n                    className=\"bg-primary d-flex justify-content-between align-items-center\",",
-        "detail": "app.graficos_dev.app_layout",
-        "documentation": {}
-    },
-    {
         "label": "df_decremento_municipio",
         "kind": 5,
         "importPath": "app.graficos_dev.grafico_acumulado",
@@ -762,6 +695,114 @@
         "description": "app.graficos_dev.grafico_acumulado",
         "peekOfCode": "years = df.index.year.unique()[df.index.year.unique()>2016].sort_values()\nfor idx, (s,e) in enumerate(zip(start, end)):\n    tmp = df[(df.index >= start[idx]) & (df.index <= end[idx])]\n    fig.add_trace(go.Scatter(x=tmp.index,\n                             y=tmp,\n                             name=str(years[idx]),\n                             mode='lines',\n                            ))\nfig.update_layout(height=600, xaxis_tickformat='%d-%m')\nfig.update_xaxes(type='date')",
         "detail": "app.graficos_dev.grafico_acumulado",
+        "documentation": {}
+    },
+    {
+        "label": "df_decremento_municipio",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "df_decremento_municipio = pd.read_csv(\n    \"app/graficos_dev/data/decremento_municipio_202305291512.csv\", index_col=\"view_date\"\n)\n# dcc.Graph(\n#         id=\"grafico-acumulado-tempo\",\n#         figure=grafico_acumulado_tempo,\n#         config={\"displaylogo\": False, \"scrollZoom\": True},\n#                     )\ndf_decremento_municipio.index = pd.to_datetime(df_decremento_municipio.index)\ndf_decremento_municipio = (",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "df_decremento_municipio.index",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "df_decremento_municipio.index = pd.to_datetime(df_decremento_municipio.index)\ndf_decremento_municipio = (\n    df_decremento_municipio[[\"area_ha\"]].groupby(df_decremento_municipio.index).sum()\n)\nlista_ano = df_decremento_municipio.index.year.unique()[\n    df_decremento_municipio.index.year.unique() > 2017\n]\ndf_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "df_decremento_municipio",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "df_decremento_municipio = (\n    df_decremento_municipio[[\"area_ha\"]].groupby(df_decremento_municipio.index).sum()\n)\nlista_ano = df_decremento_municipio.index.year.unique()[\n    df_decremento_municipio.index.year.unique() > 2017\n]\ndf_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]\n    df[\"timedelta\"] = (",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "lista_ano",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "lista_ano = df_decremento_municipio.index.year.unique()[\n    df_decremento_municipio.index.year.unique() > 2017\n]\ndf_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]\n    df[\"timedelta\"] = (\n        df.index - (df.index.year.astype(\"str\") + \"-01-01\").astype(\"datetime64[ns]\")\n    ) / 1000000\n    df[\"cumsum\"] = df.loc[:, \"area_ha\"].cumsum()",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "df_empty",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "df_empty = pd.DataFrame()\nfor ano in lista_ano:\n    df = df_decremento_municipio.loc[df_decremento_municipio.index.year == ano]\n    df[\"timedelta\"] = (\n        df.index - (df.index.year.astype(\"str\") + \"-01-01\").astype(\"datetime64[ns]\")\n    ) / 1000000\n    df[\"cumsum\"] = df.loc[:, \"area_ha\"].cumsum()\n    df_empty = pd.concat([df_empty, df[[\"timedelta\", \"cumsum\"]]])\n# Construindo os graficos dos anos passados da série histórica\ngrafico_acumulado_tempo = go.Figure()",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "grafico_acumulado_tempo",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "grafico_acumulado_tempo = go.Figure()\ngreys_custom = n_colors(\n    \"rgb(220, 220, 220)\", \"rgb(160, 160, 160)\", len(lista_ano) + 1, colortype=\"rgb\"\n)\nfor year, color in zip(lista_ano[:-1], greys_custom):\n    x_ = df_empty.loc[df_empty.index.year == year, \"timedelta\"]\n    y_ = df_empty.loc[df_empty.index.year == year, \"cumsum\"]\n    data = go.Scatter(\n        x=x_,\n        y=y_,",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "greys_custom",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "greys_custom = n_colors(\n    \"rgb(220, 220, 220)\", \"rgb(160, 160, 160)\", len(lista_ano) + 1, colortype=\"rgb\"\n)\nfor year, color in zip(lista_ano[:-1], greys_custom):\n    x_ = df_empty.loc[df_empty.index.year == year, \"timedelta\"]\n    y_ = df_empty.loc[df_empty.index.year == year, \"cumsum\"]\n    data = go.Scatter(\n        x=x_,\n        y=y_,\n        mode=\"lines\",",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "x_",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "x_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"timedelta\"]\ny_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"cumsum\"]\ndata = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)\nfirst_day = timedelta(days=1)/1000000",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "y_",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "y_ = df_empty.loc[df_empty.index.year == lista_ano[-1], \"cumsum\"]\ndata = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)\nfirst_day = timedelta(days=1)/1000000\nlast_day = timedelta(days=366)/1000000",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "data = go.Scatter(\n    x=x_,\n    y=y_,\n    mode=\"lines\",\n    name=ano,\n)\ngrafico_acumulado_tempo.add_trace(data)\nfirst_day = timedelta(days=1)/1000000\nlast_day = timedelta(days=366)/1000000\ngrafico_acumulado_tempo.update_layout(",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "first_day",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "first_day = timedelta(days=1)/1000000\nlast_day = timedelta(days=366)/1000000\ngrafico_acumulado_tempo.update_layout(\n    title=\"Acumulado Desflorestamento por Tempo\",\n    xaxis={\"title\": \"Data\", \"type\": \"date\"},\n    yaxis={\"title\": \"Área (ha)\"},\n    xaxis_tickformat=\"%d-%m\",\n    modebar={\n        \"remove\": [\n            \"zoom\",",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "documentation": {}
+    },
+    {
+        "label": "last_day",
+        "kind": 5,
+        "importPath": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "description": "app.graficos_dev.grafico_acumulado_ano_dev",
+        "peekOfCode": "last_day = timedelta(days=366)/1000000\ngrafico_acumulado_tempo.update_layout(\n    title=\"Acumulado Desflorestamento por Tempo\",\n    xaxis={\"title\": \"Data\", \"type\": \"date\"},\n    yaxis={\"title\": \"Área (ha)\"},\n    xaxis_tickformat=\"%d-%m\",\n    modebar={\n        \"remove\": [\n            \"zoom\",\n            \"pan\",",
+        "detail": "app.graficos_dev.grafico_acumulado_ano_dev",
         "documentation": {}
     },
     {
@@ -859,7 +900,16 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "external_stylesheets = [dbc.themes.BOOTSTRAP]\napp = dash.Dash(__name__, external_stylesheets=external_stylesheets)\nheader = html.Header(\n    [html.H1(\"Monitoramento Vegetação\"), html.H2(\"Harpia\")],\n    className=\"header bg-primary text-white text-center p-0 m-0\",\n)\n# assinc_await\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()",
+        "peekOfCode": "external_stylesheets = [dbc.themes.BOOTSTRAP]\nserver = Flask(__name__)\napp = dash.Dash(server=server, external_stylesheets=external_stylesheets)\napp.title = 'HarpiaDashboard'\nheader = html.Header(\n    [html.H1(\"Monitoramento Vegetação\"), html.H2(\"Harpia\")],\n    className=\"header bg-primary text-white text-center p-0 m-0\",\n)\n# assinc_await\n# Datas iniciais e finais do dataframe",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "server",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "server = Flask(__name__)\napp = dash.Dash(server=server, external_stylesheets=external_stylesheets)\napp.title = 'HarpiaDashboard'\nheader = html.Header(\n    [html.H1(\"Monitoramento Vegetação\"), html.H2(\"Harpia\")],\n    className=\"header bg-primary text-white text-center p-0 m-0\",\n)\n# assinc_await\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()",
         "detail": "app.app",
         "documentation": {}
     },
@@ -868,7 +918,16 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "app = dash.Dash(__name__, external_stylesheets=external_stylesheets)\nheader = html.Header(\n    [html.H1(\"Monitoramento Vegetação\"), html.H2(\"Harpia\")],\n    className=\"header bg-primary text-white text-center p-0 m-0\",\n)\n# assinc_await\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente",
+        "peekOfCode": "app = dash.Dash(server=server, external_stylesheets=external_stylesheets)\napp.title = 'HarpiaDashboard'\nheader = html.Header(\n    [html.H1(\"Monitoramento Vegetação\"), html.H2(\"Harpia\")],\n    className=\"header bg-primary text-white text-center p-0 m-0\",\n)\n# assinc_await\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()",
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.title",
+        "kind": 5,
+        "importPath": "app.app",
+        "description": "app.app",
+        "peekOfCode": "app.title = 'HarpiaDashboard'\nheader = html.Header(\n    [html.H1(\"Monitoramento Vegetação\"), html.H2(\"Harpia\")],\n    className=\"header bg-primary text-white text-center p-0 m-0\",\n)\n# assinc_await\n# Datas iniciais e finais do dataframe\nmax_date = df_decremento_municipio.index.max()\nmin_date = df_decremento_municipio.index.min()\n# Datas iniciais e finais do ano corrente",
         "detail": "app.app",
         "documentation": {}
     },
@@ -967,7 +1026,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "grafico_acumulado_tempo = px.line(df_empty, x=\"timedelta\", y=\"cumsum\", color='year')\ngrafico_acumulado_tempo.update_layout(title=\"Desflorestamento por Tempo\",\n    xaxis={\"title\": \"Data\"},\n    yaxis={\"title\": \"Área (ha)\"},\n    xaxis_tickformat='%m'\n)\ngrafico_acumulado_tempo.update_xaxes(type='date')\n###############################################################################\n######################### Botões para seleção #################################\n###############################################################################",
+        "peekOfCode": "grafico_acumulado_tempo = px.line(df_empty, x=\"timedelta\", y=\"cumsum\", color='year')\ngrafico_acumulado_tempo.update_layout(title=\"Desflorestamento por Tempo\",\n    xaxis={\"title\": \"Data\"},\n    yaxis={\"title\": \"Área (ha)\"},\n    xaxis_tickformat='%m',\n    legend = { \"title\": \"Ano\",\n              \"valign\": \"middle\"\n    },\n    modebar = {\n        \"remove\": [",
         "detail": "app.app",
         "documentation": {}
     },
@@ -999,11 +1058,11 @@
         "documentation": {}
     },
     {
-        "label": "TestPerformanceReport",
+        "label": "TestClassName",
         "kind": 6,
         "importPath": "test.test_data",
         "description": "test.test_data",
-        "peekOfCode": "class TestPerformanceReport(unittest.TestCase):\n    def test_trader_name(self):\n        \"\"\"Test o trader name\n        # Diogo Caribé de Sousa -> Diogo Caribé de Sousa\n        \"\"\"\n        self.assertEqual(a.trader_name, 'Diogo Caribé de Sousa')\n    def test_trader_saldo(self):\n        \"\"\"Profits from trades.\n        \"\"\"        \n        self.assertEqual(a.saldo(), -3598.46)",
+        "peekOfCode": "class TestClassName(unittest.TestCase):\n    def test_func(self):\n        ...\nif __name__ == '__name__':\n    unittest.main()",
         "detail": "test.test_data",
         "documentation": {}
     },
@@ -1012,7 +1071,7 @@
         "kind": 5,
         "importPath": "test.test_data",
         "description": "test.test_data",
-        "peekOfCode": "a = PerformanceReport(trader_name='Diogo Caribé de Sousa', df = DataTradeFromProfitCsv('test/data/20220824_relatorio_performace.csv').df)\nclass TestPerformanceReport(unittest.TestCase):\n    def test_trader_name(self):\n        \"\"\"Test o trader name\n        # Diogo Caribé de Sousa -> Diogo Caribé de Sousa\n        \"\"\"\n        self.assertEqual(a.trader_name, 'Diogo Caribé de Sousa')\n    def test_trader_saldo(self):\n        \"\"\"Profits from trades.\n        \"\"\"        ",
+        "peekOfCode": "a = \"dados\"\nclass TestClassName(unittest.TestCase):\n    def test_func(self):\n        ...\nif __name__ == '__name__':\n    unittest.main()",
         "detail": "test.test_data",
         "documentation": {}
     }
