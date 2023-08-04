@@ -77,4 +77,4 @@ def filter_data_monitoramento_municipio(dates):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=False)
+    app.run_server(debug=True)
