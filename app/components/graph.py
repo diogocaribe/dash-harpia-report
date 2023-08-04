@@ -94,23 +94,23 @@ def update_output_grafico_municipio(dados):
     """
     dff = pd.read_json(dados, orient="split")
 
-    dff_municipio = dff.groupby(["nome"]).sum()
-    
+    dff_municipio = dff.groupby(["nome"]).sum().sort_values(by=["area_ha"], ascending=False).iloc[:15]
+
     data_municipio = go.Bar(
-        x=dff_municipio.area_ha,
-        y=dff_municipio.index,
-        orientation="h",
-        text=dff_municipio.area_ha,
-        texttemplate="%{value:.2f}",
-        hovertemplate="""Município: %{y}<br>Área (ha): %{value:.2f}<extra></extra>"""
+        y=dff_municipio.area_ha,
+        x=dff_municipio.index,
+        orientation="v",
+        # text=dff_municipio.area_ha,
+        # texttemplate="%{value:.2f}",
+        hovertemplate="""Município: %{x}<br>Área (ha): %{value:.2f}<extra></extra>"""
     )
 
     grafico_municipio = go.Figure(
         data=data_municipio,
         layout={
             "title": {"text": "<b>Ranking por Município</b>"},
-            "xaxis": {"title": "Área (ha)"},
-            "yaxis": {"title": "Município", "categoryorder" : 'total ascending'},
+            "xaxis": {"title": "Município"},
+            "yaxis": {"title": "Área (ha)"},
             "modebar": {
                 "remove": [
                     "zoom",
